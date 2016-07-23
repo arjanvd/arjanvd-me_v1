@@ -1,0 +1,73 @@
+/**
+
+  @buttons
+--------------------------------------------------------
+  elements/_buttons.scss
+--------------------------------------------------------
+
+  Buttons are a common UI component in sites/apps.  They
+  are usually either anchor, button, or input elements
+  with a classname of 'btn'.  They provide an easily
+  identified clickable target.
+
+  Buttons commonly have modifying classes that apply
+  specific styles.  Examples of these are .btn--large and
+  .btn--inline
+
+  Example: Buttons using anchors
+  <p><a href="#" class="btn">Regular Button</a></p>
+
+  Example: Buttons using buttons
+  <p><button class="btn">Regular Button</button></p>
+
+------------------------------------------------------ */
+
+button {
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+.btn {
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all .35s ease; 
+  
+  &--signup-form {
+    background-color: mix($white, $red, 25%);
+    color: $white;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      background-color: mix($yellow, $red, 10%);
+      box-shadow: inset 0 0 3px mix($white, $black, 20%),
+                        0 0 3px $red;
+    }
+  }
+  &--contact-maps, &--page-nav {
+    background-color: $green-blue;
+    color: $white;
+    margin-bottom: vr(4);
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      background-color: mix($yellow, $green-blue, 10%);
+      box-shadow: inset 0 0 3px mix($white, $black, 20%),
+                        0 0 3px $green-blue;
+    }
+  }
+  & a {
+    display: block;
+    padding: vr(2);
+  }
+}
+

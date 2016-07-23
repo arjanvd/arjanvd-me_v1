@@ -1,0 +1,44 @@
+/**
+
+  @images
+---------------------------------------------------------
+  elements/_images.scss
+--------------------------------------------------------
+
+  Base styling for images, plus some helpful utility
+  classes that modify images.
+
+  Note: You won't add any styling to these image classes,
+  these are just utility classes
+
+--------------------------------------------------------- */
+
+
+
+
+
+/* @images
+--------------------------------------------------------
+
+  Base Image Style is 100% width by default
+
+  Example: Image
+  <img src="http://fillmurray.com/600/300">
+
+------------------------------------------------------ */
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+
+  &--portrait {
+    display: block;
+    width: 400px;
+  }
+}

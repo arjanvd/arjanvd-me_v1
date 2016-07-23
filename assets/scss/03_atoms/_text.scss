@@ -1,0 +1,68 @@
+/* --------------------------------------------------------
+
+TEXT
+
+===========================================================
+03_atoms/_text.scss
+-----------------------------------------------------------
+
+Basic styles to block text elments (i.e. <p>) and 
+inline text elements (such as <b>)
+
+-------------------------------------------------------- */
+
+
+/* @ block elements @ -------------------------------------
+-------------------------------------------------------- */
+
+p {
+  margin-bottom: vr(4);
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/* @ inline elements @ ------------------------------------
+-------------------------------------------------------- */
+
+b, 
+strong {
+  // NOTE: use bold font-face if available instead of 'font-weight: bold'
+  font-weight: bold;
+}
+
+i, 
+em {
+  // NOTE: use italic font-face if available instead of 'font-style: italic'
+  font-style: italic;
+}
+
+small,
+.font-small {
+  @include set-type($ms-down1);
+}
+
+time,
+.time {
+  text-transform: uppercase;
+}
+
+abbr {
+  font-variant: small-caps; 
+  font-weight: 600;
+  text-transform: lowercase;
+  
+  &[title]:hover {
+    // Cursor changed to a question mark when it has a title
+    cursor: help;
+  }
+}

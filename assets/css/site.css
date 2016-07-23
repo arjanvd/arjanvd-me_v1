@@ -1,0 +1,1155 @@
+@charset "UTF-8";
+/* --------------------------------------------------------
+
+MAIN STYLESHEET for arjanvd.me
+
+-----------------------------------------------------------
+
+TABLE OF CONTENTS
+@toc
+
+- 01_base .... reset, mixins, functions, vars, vendors
+- Elements .... single elements
+- Layout .... layout objects like grids, containers
+- Components .... objects created by combining elements
+
+-------------------------------------------------------- */
+/*  -------------------------------------------------------
+    @01_base
+-------------------------------------------------------- */
+/*
+// [1] Paragraph setting that you can turn on or off the indent of the first line
+// of a new paragraph.
+// [2] Paragraph setting that you can turn on or off to have your paragraphs ragged
+// right or justified.
+$paragraph-indent: true !default; // [1]
+$paragraph-justify: true !default; // [2]
+
+// You can optionally load type styles that use Typesettings.
+$load-typesetted: false !default;*/
+/*
+ @mixin set-type($size, $line-height: $base-line-height) {
+
+  // generates the font-size in REMs
+  font-size: $size;
+
+  // line-height functions
+  // if a line-height is specified in the mixin
+//  @if $line-height != $base-line-height and $line-height != 1 {
+//    line-height: ceil($size / $line-height) * ($line-height / $size);
+//  }
+
+     @if $line-height != $base-line-height and $line-height != 1 {
+    line-height: ($lines: $base-line-multi);
+  }
+
+   
+  // if $line-height == 1
+  // because, typing 1 is quicker than 16
+  @else if $line-height == 1 {
+    line-height: 1;
+  }
+
+  // normal $line-height
+  // if the line-height is left.
+  @else {
+    line-height: ceil($size / $base-line-height) * ($base-line-height / $size);
+  }
+}
+
+*/
+/*
+
+@if $load-typesetted {
+  //==============================================================================
+  // Default Type Styles
+  //==============================================================================
+
+  // Stops devices from scaling up text.
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-serif;
+    font-weight: 400;
+    color: $text-color;
+  }
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: $font-sans;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  // [1] Applies a margin bottom that is a multiple of the vertical grid in EMs.
+  // The first argument is the font size context and the second is multiple of the
+  // vertical grid unit.
+  // [2] Sets the type to one of the modular scale values and the second argument
+  // sets a unitless line-height as a multiple of the vertical grid.
+  // [3] A generic media query for tablet size ranges.
+  // [4] Applies a margin bottom that is the same vertical grid value as the mobile
+  // first rule.
+  // [5] Sets the type to one of the modular scale values and the second argument
+  // sets a unitless line-height as a multiple of the vertical grid.
+  h1, .h1 {
+    margin-bottom: emRhythm(1, $ms-up2); // [1]
+    @include setType(6, $ms-up2); // [2]
+
+    @media (min-width: 43.75em) {
+      // [3]
+      margin-bottom: emRhythm(1, $ms-up3); // [4]
+      @include setType(8, $ms-up3); // [5]
+    }
+
+    @media (min-width: 56.25em) {
+      margin-bottom: emRhythm(1, $ms-up4);
+      @include setType(10, $ms-up4);
+    }
+  }
+
+  h2, .h2 {
+    margin-bottom: emRhythm(1, $ms-up1);
+    @include setType(5, $ms-up1);
+
+    @media (min-width: 43.75em) {
+      margin-bottom: emRhythm(1, $ms-up2);
+      @include setType(6, $ms-up2)
+    }
+
+    @media (min-width: 56.25em) {
+      margin-bottom: emRhythm(1, $ms-up3);
+      @include setType(8, $ms-up3);
+    }
+  }
+
+  h3, .h3 {
+    margin-bottom: emRhythm(1, $ms-up1);
+    @include setType(5, $ms-up1);
+
+    @media (min-width: 56.25em) {
+      margin-bottom: emRhythm(1, $ms-up2);
+      @include setType(6, $ms-up2);
+    }
+  }
+
+  h4, .h4 {
+    margin-bottom: emRhythm(1, $ms-up1);
+    @include setType(5, $ms-up1);
+  }
+
+  h5, .h5,
+  h6, .h6 {
+    margin-bottom: emRhythm(1);
+    @include setType(4);
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: emRhythm($base-line-multi);
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: emRhythm(96);
+    -webkit-hyphens: auto;
+    -epub-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+
+    @media (min-width: 43.75em) {
+      @if $paragraph-justify {
+        text-align: justify;
+      }
+    }
+  }
+
+  @if $paragraph-indent {
+    p + p {
+      margin-top: emRhythm($base-line-multi * -1);
+      text-indent: emRhythm($base-line-multi);
+    }
+  }
+
+  small,
+  .font-small {
+    @include setType(3, $ms-down1);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  blockquote {
+    margin-top: emRhythm(4);
+    margin-bottom: emRhythm(4);
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: emRhythm(4);
+    border-left: $base-vertical-unit solid lighten(#000, 50%);
+    font-family: $font-serif;
+
+    p {
+      margin-bottom: emRhythm(2);
+    }
+
+    footer {
+      cite {
+        &:before {
+          content: " – ";
+        }
+      }
+    }
+  }
+
+  pre,
+  code {
+    font-family: $font-mono;
+  }
+
+  time,
+  .time {
+    text-transform: uppercase;
+  }
+
+  ol,
+  ul,
+  dl {
+    margin-top: 0;
+    margin-bottom: emRhythm(4);
+    margin-left: emRhythm(4);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  ul ul,
+  ol ol,
+  dl dl {
+    margin-left: 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  // [1] https://developer.mozilla.org/en-US/docs/CSS/font-variant
+  abbr {
+    font-variant: small-caps; // [1]
+    font-weight: 600;
+    text-transform: lowercase;
+  }
+
+  // Cursor changed to a question mark when it has a title
+  abbr[title]:hover {
+    cursor: help;
+  }
+
+  // Creates horizontal rules that obey the baseline.
+  // [1] Zero outs the user agent border
+  hr {
+    margin-top: emRhythm(4);
+    margin-bottom: 0;
+    border: none; // [1]
+    border-top-color: $text-color;
+    border-top-style: solid;
+    @include rhythmBorderTop(1px, 4);
+  }
+}
+
+*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.5; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* --------------------------------------------------------
+
+UNIVERSAL 
+
+===========================================================
+01_base/_universal.scss
+-----------------------------------------------------------
+
+Universal styles for box-sizing and fonts
+
+-------------------------------------------------------- */
+* {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html {
+  font-size: 87.5%;
+  font-family: "Lora", Georgia, "Times New Roman", serif; }
+  @media (min-width: 480px) {
+    html {
+      font-size: 100%; } }
+  @media (min-width: 768px) {
+    html {
+      font-size: calc(100% + 6 * (100vw - 768px) / 672); } }
+
+* {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/*  -------------------------------------------------------
+    @layout
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+LAYOUT
+
+===========================================================
+02_layout/_layout.scss
+-----------------------------------------------------------
+
+A portion of CSS is structural layout.
+
+This file is imported in site.scss, so all files in the 
+02_layout folder are imported. WARNING: do not import files 
+in the 02_layout folder directly into site.scss
+
+-------------------------------------------------------- */
+/**
+
+  @body
+--------------------------------------------------------
+  elements/_body.scss
+--------------------------------------------------------
+
+  Body should contain the document's default font and
+  background color for the content, if that background
+  color is different than the html.
+
+------------------------------------------------------ */
+.body--articles {
+  background: #f9fbfc; }
+
+.l-container {
+  max-width: 1440px;
+  margin-left: 0;
+  margin-right: auto; }
+  .l-container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+/* --------------------------------------------------------
+
+WRAPPER
+
+===========================================================
+02_layout/_wrapper.scss
+-----------------------------------------------------------
+
+Styles of wrappers
+
+-------------------------------------------------------- */
+@media (min-width: 768px) {
+  .l-wrapper--header {
+    width: 20.5882352941%;
+    float: left;
+    margin-right: 5.8823529412%; } }
+@media (min-width: 768px) {
+  .l-wrapper--content, .l-wrapper--footer {
+    width: 73.5294117647%;
+    float: right;
+    margin-right: 0; } }
+
+/*  -------------------------------------------------------
+    @atoms
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+ATOMS
+
+===========================================================
+03_atoms/_atoms.scss
+-----------------------------------------------------------
+
+From http://atomicdesign.bradfrost.com/chapter-2/:
+
+  Atoms of our interfaces serve as the foundational 
+  building blocks that comprise all our user interfaces. 
+  Therefore these atoms would include basic HTML tags like 
+  form labels, inputs, buttons, and other elements that 
+  can’t be broken down any further without ceasing to be 
+  functional.
+
+This file is imported in site.scss, so all files in the 
+03_atoms folder are imported. WARNING: do not import 
+files in the 03_atoms folder directly into site.scss
+
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+HEADINGS
+
+===========================================================
+03_atoms/_headings.scss
+-----------------------------------------------------------
+
+Basic styles to h1 - h6
+
+-------------------------------------------------------- */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900; }
+
+h1, .h1 {
+  color: #3c3c3c;
+  font-size: 2.368593037rem;
+  line-height: 0.9499310202;
+  padding: 1.5rem 0 1.5rem; }
+
+.h1--logo {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #3c3c3c;
+  font-size: 1.333rem;
+  line-height: 1.6879219805;
+  padding: 0; }
+  .h1--logo span {
+    color: #4281A4; }
+
+/* --------------------------------------------------------
+
+TEXT
+
+===========================================================
+03_atoms/_text.scss
+-----------------------------------------------------------
+
+Basic styles to block text elments (i.e. <p>) and 
+inline text elements (such as <b>)
+
+-------------------------------------------------------- */
+/* @ block elements @ -------------------------------------
+-------------------------------------------------------- */
+p {
+  margin-bottom: 1.5rem;
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word; }
+  p:last-child {
+    margin-bottom: 0; }
+
+/* @ inline elements @ ------------------------------------
+-------------------------------------------------------- */
+b,
+strong {
+  font-weight: bold; }
+
+i,
+em {
+  font-style: italic; }
+
+small,
+.font-small {
+  font-size: 0.7501875469rem;
+  line-height: 1.9995; }
+
+time,
+.time {
+  text-transform: uppercase; }
+
+abbr {
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase; }
+  abbr[title]:hover {
+    cursor: help; }
+
+/* --------------------------------------------------------
+
+CODE
+
+===========================================================
+03_atoms/_code.scss
+-----------------------------------------------------------
+
+Basic styles to block code elements (i.e. <pre>) and 
+inline code elements (i.e. <code>)
+
+-------------------------------------------------------- */
+code,
+pre {
+  font-family: "Ubuntu Mono", Monaco, monospace; }
+
+/* --------------------------------------------------------
+
+LISTS
+
+===========================================================
+03_atoms/_lists.scss
+-----------------------------------------------------------
+
+Basic styles to list elements
+
+-------------------------------------------------------- */
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+ul ul,
+ol ol,
+dl dl {
+  margin-left: 0; }
+
+ul {
+  list-style: disc; }
+  ul.ul--reset {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
+ol {
+  list-style: decimal; }
+  ol.ol--reset {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
+/* --------------------------------------------------------
+
+QUOTES
+
+===========================================================
+03_atoms/_quotes.scss
+-----------------------------------------------------------
+
+Basic styles to blockquotes and pullquotes
+
+-------------------------------------------------------- */
+blockquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 1.5rem;
+  border-left: 0.375rem solid gray;
+  font-family: ""; }
+  blockquote p {
+    margin-bottom: 0.75rem; }
+  blockquote footer cite:before {
+    content: " – "; }
+
+/**
+
+  @images
+---------------------------------------------------------
+  elements/_images.scss
+--------------------------------------------------------
+
+  Base styling for images, plus some helpful utility
+  classes that modify images.
+
+  Note: You won't add any styling to these image classes,
+  these are just utility classes
+
+--------------------------------------------------------- */
+/* @images
+--------------------------------------------------------
+
+  Base Image Style is 100% width by default
+
+  Example: Image
+  <img src="http://fillmurray.com/600/300">
+
+------------------------------------------------------ */
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle; }
+
+.img {
+  width: 100%;
+  height: auto; }
+  .img--portrait {
+    display: block;
+    width: 400px; }
+
+/*  -------------------------------------------------------
+    @molecules
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+MOLECULES
+
+===========================================================
+04_molecules/_molecules.scss
+-----------------------------------------------------------
+
+From: http://atomicdesign.bradfrost.com/chapter-2/
+
+  In interfaces, molecules are relatively simple groups of 
+  UI elements functioning together as a unit. For example, 
+  a form label, search input, and button can combine them 
+  together to create a search form molecule.
+
+This file is imported in site.scss, so all files in the 
+04_molecules folder are imported. WARNING: do not import 
+files in the 04_molecules folder directly into site.scss
+
+-------------------------------------------------------- */
+.m-logo {
+  margin-right: auto; }
+  @media (min-width: 768px) {
+    .m-logo {
+      text-align: right; } }
+
+.m-nav__list {
+  display: block;
+  text-align: right;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase; }
+  @media (max-width: 767px) {
+    .m-nav__list {
+      position: fixed;
+      text-align: center;
+      overflow: hidden;
+      z-index: -1;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      background: rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease-in-out; } }
+
+@media (max-width: 767px) {
+  .m-nav__list ul {
+    position: relative;
+    top: 10vh;
+    transform: scale(2);
+    transition: all 0.3s ease-in-out; } }
+
+@media (max-width: 767px) {
+  .m-nav__list li {
+    display: block; } }
+
+.m-nav__list li a {
+  text-decoration: none;
+  color: #888888;
+  font-size: 1rem;
+  line-height: 2.25;
+  transition: all 0.3s ease; }
+  .m-nav__list li a.nav-link--articles:hover {
+    border-bottom: 2px solid #4281A4; }
+  .m-nav__list li a.nav-link--photos:hover {
+    border-bottom: 2px solid #49D49D; }
+  .m-nav__list li a.nav-link--code:hover {
+    border-bottom: 2px solid #9E768F; }
+  .m-nav__list li a.nav-link--training:hover {
+    border-bottom: 2px solid #F06449; }
+  .m-nav__list li a.nav-link--links:hover {
+    border-bottom: 2px solid #E4B363; }
+  @media (max-width: 767px) {
+    .m-nav__list li a {
+      display: block;
+      font-size: 2rem;
+      line-height: calc(80vh/5);
+      color: #fff;
+      opacity: 0.8;
+      transition: all 0.2s ease-in-out; }
+      .m-nav__list li a.nav-link--articles {
+        background-color: #4281A4; }
+      .m-nav__list li a.nav-link--photos {
+        background-color: #49D49D; }
+      .m-nav__list li a.nav-link--code {
+        background-color: #9E768F; }
+      .m-nav__list li a.nav-link--training {
+        background-color: #F06449; }
+      .m-nav__list li a.nav-link--links {
+        background-color: #E4B363; } }
+
+#toggle-nav-label {
+  display: none; }
+  @media (max-width: 767px) {
+    #toggle-nav-label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      z-index: 500; }
+      #toggle-nav-label span {
+        color: #555555;
+        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        margin-right: 0.75rem; } }
+
+#toggle-nav {
+  display: none; }
+
+#toggle-nav:checked ~ .m-nav__list {
+  opacity: 1;
+  z-index: 400; }
+
+#toggle-nav:checked ~ .m-nav__list ul {
+  transform: scale(1); }
+
+#toggle-nav:checked ~ #toggle-nav-label {
+  color: rgba(0, 0, 0, 0.8); }
+
+/* https://codepen.io/designcouch/pen/Atyop */
+.m-nav__icon {
+  width: 2rem;
+  height: 1.5rem;
+  display: inline-block;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  vertical-align: middle; }
+
+.m-nav__icon span {
+  display: block;
+  position: absolute;
+  height: calc(1.5rem/5);
+  width: 100%;
+  background: #888888;
+  border-radius: calc(1.5rem/5);
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out; }
+
+.m-nav__icon span:nth-child(1) {
+  top: 0; }
+
+.m-nav__icon span:nth-child(2),
+.m-nav__icon span:nth-child(3) {
+  top: calc((1.5rem/5)*2); }
+
+.m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*4); }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(1) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(2) {
+  transform: rotate(45deg);
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  background: #fff; }
+
+#toggle-nav:checked ~ #toggle-nav-label .m-nav__icon span:nth-child(4) {
+  top: calc((1.5rem/5)*2);
+  width: 0%;
+  left: 50%;
+  background: #fff; }
+
+/*  -------------------------------------------------------
+    @organisms
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+ORGANISMS
+
+===========================================================
+05_organisms/_organisms.scss
+-----------------------------------------------------------
+
+From http://atomicdesign.bradfrost.com/chapter-2/:
+
+  Organisms are relatively complex UI components composed 
+  of groups of molecules and/or atoms and/or other 
+  organisms. These organisms form distinct sections of an 
+  interface.
+
+This file is imported in site.scss, so all files in the 
+05_organisms folder are imported. WARNING: do not import 
+files in the 05_organisms folder directly into site.scss
+
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+
+HEADER
+
+===========================================================
+05_organisms/_header.scss
+-----------------------------------------------------------
+
+Style of header
+
+-------------------------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 4%; }
+  @media (min-width: 480px) {
+    header {
+      margin: 0 8% 0 4%; } }
+  @media (min-width: 640px) {
+    header {
+      margin: 0 6rem 0 3rem; } }
+  @media (min-width: 768px) {
+    header {
+      display: block;
+      margin: 0 0 0 1.5rem; } }
+
+/* --------------------------------------------------------
+
+ARTICLE
+
+===========================================================
+05_organisms/_article.scss
+-----------------------------------------------------------
+
+Styles of articles
+
+-------------------------------------------------------- */
+.o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+.o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+  margin: 0 4%; }
+  @media (min-width: 480px) {
+    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+      margin: 0 8% 0 4%; } }
+  @media (min-width: 640px) {
+    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+      margin: 0 6rem 0 3rem; } }
+  @media (min-width: 768px) {
+    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+      margin: 0 9rem 0 0; } }
+  @media (min-width: 996px) {
+    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+      margin: 0 9rem 0 0; } }
+  @media (min-width: 1140px) {
+    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
+    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
+      margin: 0 15rem 0 0; } }
+.o-article--photos {
+  width: 50%;
+  float: left; }
+  .o-article--photos:nth-child(2n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0; }
+  .o-article--photos:nth-child(2n + 2) {
+    margin-left: 50%;
+    margin-right: -100%;
+    clear: none; }
+  @media (min-width: 480px) {
+    .o-article--photos {
+      width: 33.3333333333%;
+      float: left; }
+      .o-article--photos:nth-child(3n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .o-article--photos:nth-child(3n + 2) {
+        margin-left: 33.3333333333%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(3n + 3) {
+        margin-left: 66.6666666667%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 640px) {
+    .o-article--photos {
+      width: 25%;
+      float: left; }
+      .o-article--photos:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .o-article--photos:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 768px) {
+    .o-article--photos {
+      width: 33.3333333333%;
+      float: left; }
+      .o-article--photos:nth-child(3n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .o-article--photos:nth-child(3n + 2) {
+        margin-left: 33.3333333333%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(3n + 3) {
+        margin-left: 66.6666666667%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 996px) {
+    .o-article--photos {
+      width: 25%;
+      float: left; }
+      .o-article--photos:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .o-article--photos:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 1140px) {
+    .o-article--photos {
+      width: 20%;
+      float: left; }
+      .o-article--photos:nth-child(5n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .o-article--photos:nth-child(5n + 2) {
+        margin-left: 20%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(5n + 3) {
+        margin-left: 40%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(5n + 4) {
+        margin-left: 60%;
+        margin-right: -100%;
+        clear: none; }
+      .o-article--photos:nth-child(5n + 5) {
+        margin-left: 80%;
+        margin-right: -100%;
+        clear: none; } }
+
+footer {
+  margin: 0 4%; }
+  @media (min-width: 480px) {
+    footer {
+      margin: 0 8% 0 4%; } }
+  @media (min-width: 640px) {
+    footer {
+      margin: 0 6rem 0 3rem; } }
+  @media (min-width: 768px) {
+    footer {
+      margin: 0; } }
+  @media (min-width: 996px) {
+    footer {
+      margin: 0; } }
+
+/* --------------------------------------------------------------
+
+ Hartija Css Print  Framework
+   * Version:   1.0
+
+-------------------------------------------------------------- */
+@media print {
+  body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.45;
+    font-family: Garamond,"Times New Roman", serif;
+    color: #000;
+    background: none;
+    font-size: 14pt; }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid; }
+
+  h1 {
+    font-size: 19pt; }
+
+  h2 {
+    font-size: 17pt; }
+
+  h3 {
+    font-size: 15pt; }
+
+  h4, h5, h6 {
+    font-size: 14pt; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  code {
+    font: 12pt Courier, monospace; }
+
+  blockquote {
+    margin: 1.2em;
+    padding: 1em;
+    font-size: 12pt; }
+
+  hr {
+    background-color: #ccc; }
+
+  /* Images */
+  img {
+    float: left;
+    margin: 1em 1.5em 1.5em 0;
+    max-width: 100% !important; }
+
+  a img {
+    border: none; }
+
+  /* Links */
+  a:link, a:visited {
+    background: transparent;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #333; }
+
+  a:link[href^="http://"]:after, a[href^="http://"]:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /* Don't show linked images  */
+  a[href^="http://"] {
+    color: #000; }
+
+  a[href$=".jpg"]:after, a[href$=".jpeg"]:after, a[href$=".gif"]:after, a[href$=".png"]:after {
+    content: " (" attr(href) ") ";
+    display: none; }
+
+  /* Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol .. taken from html5boilerplate */
+  a[href^="#"]:after, a[href^="javascript:"]:after {
+    content: ""; }
+
+  /* Table */
+  table {
+    margin: 1px;
+    text-align: left; }
+
+  th {
+    border-bottom: 1px solid #333;
+    font-weight: bold; }
+
+  td {
+    border-bottom: 1px solid #333; }
+
+  th, td {
+    padding: 4px 10px 4px 0; }
+
+  tfoot {
+    font-style: italic; }
+
+  caption {
+    background: #fff;
+    margin-bottom: 2em;
+    text-align: left; }
+
+  thead {
+    display: table-header-group; }
+
+  img, tr {
+    page-break-inside: avoid; }
+
+  /* Hide various parts from the site
+  #header, #footer, #navigation, #rightSideBar, #leftSideBar
+  {display:none;}
+  */ }

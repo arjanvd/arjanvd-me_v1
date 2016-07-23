@@ -1,0 +1,142 @@
+.figures { 
+  
+  display: none;
+  
+  @include bp(medium) {
+    
+    display: block;
+    position: absolute;
+    
+    &--about {
+      left: 20px; // Deze wellicht nog verder opschuiven bij grotere schermbreedtes
+      top: 150px;
+      
+      @include bp(large) {
+        left: 60px;
+      }
+      
+      
+      &--intro {
+        width: 232px;
+        height: 198px;
+        background: url(img/sprite-wie.png) 0 0 no-repeat;
+      //  background: url(img/kasteel.png) 0 0 no-repeat;
+      }
+      
+      &--1 {
+        width: 232px;
+        height: 243px;
+        background: url(img/sprite-wie.png) 0 -198px no-repeat;
+      //  background: url(img/baby-met-boompje.png) 0 0 no-repeat;
+      }
+
+      &--2 {
+        width: 232px;
+        height: 349px;
+        background: url(img/sprite-wie.png) 0 -441px no-repeat;
+      //  background: url(img/bloempot.png) 0 0 no-repeat;
+      }
+
+      &--3 {
+        width: 232px;
+        height: 192px;
+        background: url(img/sprite-wie.png) 0 -790px no-repeat;
+     //   background: url(img/meisje-wortel.png) 0 0 no-repeat;
+      }
+
+      &--4 {
+        width: 232px;
+        height: 240px;
+        background: url(img/sprite-wie.png) 0 -982px no-repeat;
+    //    background: url(img/bakfiets.png) 0 0 no-repeat;
+      }
+      
+      &--5 {
+        width: 232px;
+        height: 397px;
+        background: url(img/sprite-wie.png) 0 -1222px no-repeat;
+      //  background: url(img/moeder-met-beer.png) 0 0 no-repeat;
+      }
+
+      &--6 {
+        width: 232px;
+        height: 420px;
+        background: url(img/sprite-wie.png) 0 -1619px no-repeat;
+    //    background: url(img/stapelblokken.png) 0 0 no-repeat;
+      }
+    
+      &--7 {
+        width: 232px;
+        height: 170px;
+        background: url(img/sprite-wie.png) 0 -2041px no-repeat;
+     //   background: url(img/varken-met-kaplaarzen.png) 0 0 no-repeat;
+      }
+    
+    }
+    
+    &--faq { // op faq-pagina
+      top: 10px;
+      left: 60px;
+      width: 172px;
+      height: 200px;
+      background: url(img/kar-zandbak.png) 0 0 no-repeat;
+    }
+
+    &--media { // op media-pagina
+      top: 10px;
+      left: 100px;
+      width: 79px;
+      height: 200px;
+      background: url(img/vogelhuisje.png) 0 0 no-repeat;
+    }
+
+  }
+  
+}
+
+.figures--parents {
+  width: 100%;
+  margin-bottom: vr(4);
+  
+  &__1 {
+    background: url(img/baby-boompje-tractor.png) 50% 0 no-repeat;
+    height: 130px;
+  }
+  &__2 {
+    background: url(img/meisje-met-gieter.png) 50% 0 no-repeat;
+    height: 138px;
+  }
+  
+}
+
+.figures--contact {
+  
+  display: none;
+  
+  @include bp(medium) {
+    display: block;
+    margin: vr(8) 0 0;
+    height: 260px;
+  }
+  
+  &__1 {
+    @include span(3 of 12);
+    background: url(img/cirkel-kuikentjes.png) 0 0 no-repeat;
+    background-size: contain;
+  }
+  &__2 {
+    @include span(3 at 4 of 12);
+    background: url(img/cirkel-kapoentjes.png) 0 0 no-repeat;
+    background-size: contain;
+  }
+  &__3 {
+    @include span(3 at 7 of 12);
+    background: url(img/cirkel-kikkers.png) 0 0 no-repeat;
+    background-size: contain;
+  }
+  &__4 {
+    @include span(3 at 10 of 12);
+    background: url(img/cirkel-krekels.png) 0 0 no-repeat;
+    background-size: contain;
+  }
+}

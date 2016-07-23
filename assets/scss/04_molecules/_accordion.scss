@@ -1,0 +1,17 @@
+  .acc-toggle {
+    cursor: pointer;
+    transform: all 0.35s ease;
+    
+    &.open-toggle {
+      font-weight: 700;
+      color: $red;
+    }
+    
+  }
+  .acc-content {
+    display: none;
+    &--margin {
+      margin-bottom: vr(4);
+    }
+  }
+
