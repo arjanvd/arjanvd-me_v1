@@ -17,11 +17,11 @@ TABLE OF CONTENTS
 /*  -------------------------------------------------------
     @01_base
 -------------------------------------------------------- */
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 TYPE ON A MODULAR SCALE
 
-===========================================================
+===============================================================================
 
 A Sass toolkit that sets type in rem's, based on a modular 
 scale while maintaining vertical rhythm. And as a small 
@@ -33,33 +33,64 @@ License: The MIT License (MIT)
 
 Heavily inspired by and used stuff from:
 https://github.com/ianrose/typesettings
+alwaystwisted     XXXXXXXXXXXXXXXXXXXXXXXXXXX
 
--------------------------------------------------------- */
-/* --------------------------------------------------------
-Modular scale
-===========================================================
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Modular scale 
+===============================================================================
 
 Sass map
 modularscale.com
 
--------------------------------------------------------- */
-/* --------------------------------------------------------
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
 Configurable variables
-===========================================================
+===============================================================================
 
-The config variables have default values that are just 
-looking to be adjusted. Use this variables to customize 
-your Typesettings. But be careful: with great powers comes
-great responsibility.
+The config variables have default values that that you can adjust at will. 
+Use this variables to customize your settings. But be careful: with great 
+powers comes great responsibility.
 
--------------------------------------------------------- */
-/* [1] */
+---------------------------------------------------------------------------- */
+/* ----
+Choose a key from $ms-ratio-map above. Check modularscale.com to make an 
+educated choice. 
+---- */
+/* [1] rem is necessary */
 /* [2] */
 /* [3] */
-/* [4] The vertical grid unit, set in rem's like font-size. This is the
-value that determines the baseline for our vertical rhythm. Margin, padding, and 
-line-height are set to multiples of this value. */
-/* [5] */
+/* ----------------------------------------------------------------------------
+Helper variable
+===============================================================================
+
+The vertical grid unit, set in rem's like font-size. This is the value that 
+determines the baseline for our vertical rhythm. Line-height, margin, and 
+padding are set to multiples of this value. 
+[Note] Do not touch this variable directly. Just admire its beauty from a 
+distance.
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Modular scale calculations
+===============================================================================
+
+Based on the configurable variables $base-font-size and $ms-ratio the modular 
+scale is calculated, both up and down. Each step down divides the previous step 
+with $ms-ratio (i.e. $ms-down2 = $ms-down1 / $ms-ratio). Each step up multi-
+plies the previous step with $ms-ratio (i.e. $ms-up2 = $ms-up1 * $ms-ratio). 
+[Note] This one already goes up to eleven, but if you need more size up then 
+add more sizes. And no, it doesn't go down to eleven. That would be ridiculous.
+
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+Mixins and function
+===============================================================================
+
+The mixins and function that make sure that vertical rhythm is maintained. This 
+is where the real magic happens.
+
+---------------------------------------------------------------------------- */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -261,6 +292,15 @@ h6, .h6 {
 
 h1, .h1 {
   color: #3c3c3c;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, rounded to a multiple 
+      of $base-line-height (to maintain vertical rhythm)
+  ---- */
   font-size: 2.3703703702rem;
   line-height: 0.9492187501;
   padding: 1.5rem 0 1.5rem; }
@@ -269,6 +309,15 @@ h1, .h1 {
   font-weight: 900;
   text-transform: uppercase;
   color: #3c3c3c;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, rounded to a multiple 
+      of $base-line-height (to maintain vertical rhythm)
+  ---- */
   font-size: 1.3333333333rem;
   line-height: 1.6875;
   padding: 0; }
@@ -313,6 +362,15 @@ em {
 
 small,
 .font-small {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, rounded to a multiple 
+      of $base-line-height (to maintain vertical rhythm)
+  ---- */
   font-size: 0.75rem;
   line-height: 2; }
 
@@ -504,6 +562,15 @@ files in the 04_molecules folder directly into site.scss
 .m-nav__list li a {
   text-decoration: none;
   color: #888888;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, rounded to a multiple 
+      of $base-line-height (to maintain vertical rhythm)
+  ---- */
   font-size: 1rem;
   line-height: 2.25;
   transition: all 0.3s ease; }
