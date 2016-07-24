@@ -23,14 +23,13 @@ TABLE OF CONTENTS
 // Configs
 
 @import "susy";
-@import "01_base/config/typesettings";
-
 
 // Vars
 
 @import "01_base/vars/breakpoints";
 @import "01_base/vars/colours";
-@import "01_base/vars/susy--settings";
+@import "01_base/vars/fonts";
+@import "01_base/vars/susy-settings";
 @import "01_base/vars/typesettings";
 
 // Mixins

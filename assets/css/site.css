@@ -17,267 +17,49 @@ TABLE OF CONTENTS
 /*  -------------------------------------------------------
     @01_base
 -------------------------------------------------------- */
-/*
-// [1] Paragraph setting that you can turn on or off the indent of the first line
-// of a new paragraph.
-// [2] Paragraph setting that you can turn on or off to have your paragraphs ragged
-// right or justified.
-$paragraph-indent: true !default; // [1]
-$paragraph-justify: true !default; // [2]
+/* --------------------------------------------------------
 
-// You can optionally load type styles that use Typesettings.
-$load-typesetted: false !default;*/
-/*
- @mixin set-type($size, $line-height: $base-line-height) {
+TYPE ON A MODULAR SCALE
 
-  // generates the font-size in REMs
-  font-size: $size;
+===========================================================
 
-  // line-height functions
-  // if a line-height is specified in the mixin
-//  @if $line-height != $base-line-height and $line-height != 1 {
-//    line-height: ceil($size / $line-height) * ($line-height / $size);
-//  }
+A Sass toolkit that sets type in rem's, based on a modular 
+scale while maintaining vertical rhythm. And as a small 
+bonus pixel borders that maintain rhythm.
 
-     @if $line-height != $base-line-height and $line-height != 1 {
-    line-height: ($lines: $base-line-multi);
-  }
+Release Versions: https://github.com/arjanvd/XXXX
+Github: https://github.com/arjanvd/XXXXX
+License: The MIT License (MIT)
 
-   
-  // if $line-height == 1
-  // because, typing 1 is quicker than 16
-  @else if $line-height == 1 {
-    line-height: 1;
-  }
+Heavily inspired by and used stuff from:
+https://github.com/ianrose/typesettings
 
-  // normal $line-height
-  // if the line-height is left.
-  @else {
-    line-height: ceil($size / $base-line-height) * ($base-line-height / $size);
-  }
-}
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+Modular scale
+===========================================================
 
-*/
-/*
+Sass map
+modularscale.com
 
-@if $load-typesetted {
-  //==============================================================================
-  // Default Type Styles
-  //==============================================================================
+-------------------------------------------------------- */
+/* --------------------------------------------------------
+Configurable variables
+===========================================================
 
-  // Stops devices from scaling up text.
-  html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-  }
+The config variables have default values that are just 
+looking to be adjusted. Use this variables to customize 
+your Typesettings. But be careful: with great powers comes
+great responsibility.
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: $font-serif;
-    font-weight: 400;
-    color: $text-color;
-  }
-
-  h1, .h1,
-  h2, .h2,
-  h3, .h3,
-  h4, .h4,
-  h5, .h5,
-  h6, .h6 {
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-family: $font-sans;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  // [1] Applies a margin bottom that is a multiple of the vertical grid in EMs.
-  // The first argument is the font size context and the second is multiple of the
-  // vertical grid unit.
-  // [2] Sets the type to one of the modular scale values and the second argument
-  // sets a unitless line-height as a multiple of the vertical grid.
-  // [3] A generic media query for tablet size ranges.
-  // [4] Applies a margin bottom that is the same vertical grid value as the mobile
-  // first rule.
-  // [5] Sets the type to one of the modular scale values and the second argument
-  // sets a unitless line-height as a multiple of the vertical grid.
-  h1, .h1 {
-    margin-bottom: emRhythm(1, $ms-up2); // [1]
-    @include setType(6, $ms-up2); // [2]
-
-    @media (min-width: 43.75em) {
-      // [3]
-      margin-bottom: emRhythm(1, $ms-up3); // [4]
-      @include setType(8, $ms-up3); // [5]
-    }
-
-    @media (min-width: 56.25em) {
-      margin-bottom: emRhythm(1, $ms-up4);
-      @include setType(10, $ms-up4);
-    }
-  }
-
-  h2, .h2 {
-    margin-bottom: emRhythm(1, $ms-up1);
-    @include setType(5, $ms-up1);
-
-    @media (min-width: 43.75em) {
-      margin-bottom: emRhythm(1, $ms-up2);
-      @include setType(6, $ms-up2)
-    }
-
-    @media (min-width: 56.25em) {
-      margin-bottom: emRhythm(1, $ms-up3);
-      @include setType(8, $ms-up3);
-    }
-  }
-
-  h3, .h3 {
-    margin-bottom: emRhythm(1, $ms-up1);
-    @include setType(5, $ms-up1);
-
-    @media (min-width: 56.25em) {
-      margin-bottom: emRhythm(1, $ms-up2);
-      @include setType(6, $ms-up2);
-    }
-  }
-
-  h4, .h4 {
-    margin-bottom: emRhythm(1, $ms-up1);
-    @include setType(5, $ms-up1);
-  }
-
-  h5, .h5,
-  h6, .h6 {
-    margin-bottom: emRhythm(1);
-    @include setType(4);
-  }
-
-  p {
-    margin-top: 0;
-    margin-bottom: emRhythm($base-line-multi);
-    padding-top: 0;
-    padding-bottom: 0;
-    max-width: emRhythm(96);
-    -webkit-hyphens: auto;
-    -epub-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-word;
-
-    @media (min-width: 43.75em) {
-      @if $paragraph-justify {
-        text-align: justify;
-      }
-    }
-  }
-
-  @if $paragraph-indent {
-    p + p {
-      margin-top: emRhythm($base-line-multi * -1);
-      text-indent: emRhythm($base-line-multi);
-    }
-  }
-
-  small,
-  .font-small {
-    @include setType(3, $ms-down1);
-  }
-
-  em {
-    font-style: italic;
-  }
-
-  strong {
-    font-weight: bold;
-  }
-
-  blockquote {
-    margin-top: emRhythm(4);
-    margin-bottom: emRhythm(4);
-    margin-left: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: emRhythm(4);
-    border-left: $base-vertical-unit solid lighten(#000, 50%);
-    font-family: $font-serif;
-
-    p {
-      margin-bottom: emRhythm(2);
-    }
-
-    footer {
-      cite {
-        &:before {
-          content: " – ";
-        }
-      }
-    }
-  }
-
-  pre,
-  code {
-    font-family: $font-mono;
-  }
-
-  time,
-  .time {
-    text-transform: uppercase;
-  }
-
-  ol,
-  ul,
-  dl {
-    margin-top: 0;
-    margin-bottom: emRhythm(4);
-    margin-left: emRhythm(4);
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  ul ul,
-  ol ol,
-  dl dl {
-    margin-left: 0;
-  }
-
-  ul {
-    list-style: disc;
-  }
-
-  ol {
-    list-style: decimal;
-  }
-
-  // [1] https://developer.mozilla.org/en-US/docs/CSS/font-variant
-  abbr {
-    font-variant: small-caps; // [1]
-    font-weight: 600;
-    text-transform: lowercase;
-  }
-
-  // Cursor changed to a question mark when it has a title
-  abbr[title]:hover {
-    cursor: help;
-  }
-
-  // Creates horizontal rules that obey the baseline.
-  // [1] Zero outs the user agent border
-  hr {
-    margin-top: emRhythm(4);
-    margin-bottom: 0;
-    border: none; // [1]
-    border-top-color: $text-color;
-    border-top-style: solid;
-    @include rhythmBorderTop(1px, 4);
-  }
-}
-
-*/
+-------------------------------------------------------- */
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] The vertical grid unit, set in rem's like font-size. This is the
+value that determines the baseline for our vertical rhythm. Margin, padding, and 
+line-height are set to multiples of this value. */
+/* [5] */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -357,6 +139,16 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.fonts-loaded body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.fonts-loaded h1, .fonts-loaded .h1,
+.fonts-loaded h2, .fonts-loaded .h2,
+.fonts-loaded h3, .fonts-loaded .h3,
+.fonts-loaded h4, .fonts-loaded .h4,
+.fonts-loaded h5, .fonts-loaded .h5,
+.fonts-loaded h6, .fonts-loaded .h6 {
+  font-family: "Lato", "Courier New", Courier, monospace; }
 
 /*  -------------------------------------------------------
     @layout
@@ -469,16 +261,16 @@ h6, .h6 {
 
 h1, .h1 {
   color: #3c3c3c;
-  font-size: 2.368593037rem;
-  line-height: 0.9499310202;
+  font-size: 2.3703703702rem;
+  line-height: 0.9492187501;
   padding: 1.5rem 0 1.5rem; }
 
 .h1--logo {
   font-weight: 900;
   text-transform: uppercase;
   color: #3c3c3c;
-  font-size: 1.333rem;
-  line-height: 1.6879219805;
+  font-size: 1.3333333333rem;
+  line-height: 1.6875;
   padding: 0; }
   .h1--logo span {
     color: #4281A4; }
@@ -521,8 +313,8 @@ em {
 
 small,
 .font-small {
-  font-size: 0.7501875469rem;
-  line-height: 1.9995; }
+  font-size: 0.75rem;
+  line-height: 2; }
 
 time,
 .time {
