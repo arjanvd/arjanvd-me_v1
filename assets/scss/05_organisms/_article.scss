@@ -13,31 +13,49 @@ Styles of articles
 
 .o-article {  
   
-  div, object, iframe, h1, h2, h3, h4, h5, h6, p, dl, ol, 
-  ul, form, table, .img--portrait {
-    margin: 0 4%;
+/*  div, object, iframe, h1, h2, h3, h4, h5, h6, p, dl, ol, 
+  ul, form, table {*/
+    margin-left: 4%;
+    margin-right: 4%;
     
     @include bp(x-small) {
-      margin: 0 8% 0 4%;
+      margin-left: 4%;
+      margin-right: 8%;
     }
     
     @include bp(small) {
-      margin: 0 vr(16) 0 vr(8);
+      margin-left: vr(8);
+      margin-right: vr(16);
     }
     
     @include bp(medium) {
-      margin: 0 vr(24) 0 0;
-    }
-    
-    @include bp(large) {
-      margin: 0 vr(24) 0 0;
+      margin-left: 0;
+      margin-right: vr(24);
     }
     
     @include bp(x-large) {
-      margin: 0 vr(40) 0 0;
+      margin-left: 0;
+      margin-right: vr(40);
     }
     
+  blockquote {
+    @include bp(x-large) {
+      margin-right: -#{vr(40)};
+      padding-right: vr(40);
+    }
   }
+  img {
+      margin-left: -4%;
+      margin-right: -4%;
+    width: 108%;
+    @include bp(x-large) {
+      margin-left: 0;
+      margin-right: -#{vr(40)};
+      width: calc(100% + #{vr(40)});
+    }
+  }
+  
+//  }
   
   &--photos {
     @include gallery(1 of 2 0);

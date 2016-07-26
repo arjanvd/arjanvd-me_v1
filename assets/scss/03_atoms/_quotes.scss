@@ -14,21 +14,26 @@ blockquote {
   margin-top: vr(4);
   margin-bottom: vr(4);
   margin-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: vr(4);
-  border-left: $base-vertical-unit solid lighten(#000, 50%);
-  font-family: "";
-
-  p {
-    margin-bottom: vr(2);
+  padding-top: vr(4);
+  padding-bottom: vr(4);
+  padding-left: 0;
+  border-left: vr(1) solid $grey60;
+  font-family: $font-sans;
+  background-color: $grey20;
+  
+  @include bp(medium) {
+    margin-left: -#{vr(5)};
+    padding-left: vr(4);
   }
 
-  footer {
-    cite {
-      &:before {
-        content: " – ";
-      }
+  p { 
+    margin-bottom: vr(4);
+  }
+  
+  cite {
+    &:before {
+      content: " – ";
     }
   }
+
 }

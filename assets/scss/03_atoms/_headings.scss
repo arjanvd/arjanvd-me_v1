@@ -23,17 +23,31 @@ h6, .h6 {
 h1, .h1 {
   color: $grey90;
   @include set-type($ms-up3, 3);
-  padding: vr(4) 0 vr(4);
+  padding: vr(4) 0;
 }
 
 .h1--logo {
-  font-weight: 900;
   text-transform: uppercase;
   color: $grey90;
-  @include set-type($ms-up1, 6);
+  @include set-type($ms-up1, 8);
   padding: 0;
   
-  & span {
-    color: $blue;
+  &__dot--home {
+    color: $color-home;
+  }
+  &__dot--articles {
+    color: $color-articles;
+  }
+  &__dot--photos {
+    color: $color-photos;
+  }
+  &__dot--code {
+    color: $color-code;
+  }
+  &__dot--sport {
+    color: $color-sport;
+  }
+  &__dot--links {
+    color: $color-links;
   }
 }

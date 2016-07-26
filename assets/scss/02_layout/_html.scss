@@ -24,7 +24,7 @@ html {
 html {
   box-sizing: border-box;
   color: $black;
-  font-family: $font-sans;
+  font-family: $font-serif;
   font-size: 87.5%; // 14px
   
   @include bp(x-small) {

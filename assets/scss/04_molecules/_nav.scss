@@ -43,23 +43,23 @@
   text-decoration: none;
   color: $grey60;
   @include set-type($ms-base, 6);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   
   &.nav-link {
       &--articles:hover {
-        border-bottom: 2px solid $blue;
+        border-bottom: 3px solid $blue;
       }
       &--photos:hover {
-        border-bottom: 2px solid $green;
+        border-bottom: 3px solid $green;
       }
       &--code:hover {
-        border-bottom: 2px solid $purple;
+        border-bottom: 3px solid $purple;
       }
-      &--training:hover {
-        border-bottom: 2px solid $red;
+      &--sport:hover {
+        border-bottom: 3px solid $red;
       }
       &--links:hover {
-        border-bottom: 2px solid $orange;
+        border-bottom: 3px solid $orange;
       }
     }
   
@@ -74,18 +74,33 @@
     &.nav-link {
       &--articles {
         background-color: $blue;
+        &:hover {
+          border-bottom: 0;
+        }
       }
       &--photos {
         background-color: $green;
+        &:hover {
+          border-bottom: 0;
+        }
       }
       &--code {
         background-color: $purple;
+        &:hover {
+          border-bottom: 0;
+        }
       }
-      &--training {
+      &--sport {
         background-color: $red;
+        &:hover {
+          border-bottom: 0;
+        }
       }
       &--links {
         background-color: $orange;
+        &:hover {
+          border-bottom: 0;
+        }
       }
     }
   }

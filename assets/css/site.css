@@ -23,9 +23,9 @@ TYPE ON A MODULAR SCALE
 
 ===============================================================================
 
-A Sass toolkit that sets type in rem's, based on a modular 
-scale while maintaining vertical rhythm. And as a small 
-bonus pixel borders that maintain rhythm.
+A Sass toolkit that sets type in rem's, based on a modular scale while 
+maintaining vertical rhythm. And as a small bonus pixel borders that maintain 
+rhythm.
 
 Release Versions: https://github.com/arjanvd/XXXX
 Github: https://github.com/arjanvd/XXXXX
@@ -57,9 +57,21 @@ powers comes great responsibility.
 Choose a key from $ms-ratio-map above. Check modularscale.com to make an 
 educated choice. 
 ---- */
-/* [1] rem is necessary */
-/* [2] */
-/* [3] */
+/* ----
+Set the font-size to a value in rem's. It's advised to leave this at 1rem, 
+while setting a percentage font-size on your html tag (i.e. html { font-size: 
+100%; }). When you need a larger base font-size at higher media queries, only 
+adjust the font-size on the html-tag (i.e. @media (min-width: 600px) { html { 
+font-size: 120%; } }).
+---- */
+/* ----
+Set the line-height which serves as the base for the vertical rhythm.
+---- */
+/* ----
+Sometimes you need more granular control of the distance between elements than 
+a full $base-line-height. This variable defines that amount of granular 
+control.
+---- */
 /* ----------------------------------------------------------------------------
 Helper variable
 ===============================================================================
@@ -67,8 +79,7 @@ Helper variable
 The vertical grid unit, set in rem's like font-size. This is the value that 
 determines the baseline for our vertical rhythm. Line-height, margin, and 
 padding are set to multiples of this value. 
-[Note] Do not touch this variable directly. Just admire its beauty from a 
-distance.
+[Note] Do not touch this variable . Just admire its beauty from a distance.
 
 ---------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------
@@ -172,7 +183,7 @@ html {
   -moz-osx-font-smoothing: grayscale; }
 
 .fonts-loaded body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Lora", Georgia, "Times New Roman", serif; }
 .fonts-loaded h1, .fonts-loaded .h1,
 .fonts-loaded h2, .fonts-loaded .h2,
 .fonts-loaded h3, .fonts-loaded .h3,
@@ -298,15 +309,14 @@ h1, .h1 {
       setting the number of lines other than $base-line-multi, line-height is 
       rounded to a multiple of those lines in rem's (to maintain vertical 
       rhythm)
-  [3] Line height function: if the line-height is left, rounded to a multiple 
-      of $base-line-height (to maintain vertical rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
   ---- */
   font-size: 2.3703703702rem;
   line-height: 0.9492187501;
-  padding: 1.5rem 0 1.5rem; }
+  padding: 1.5rem 0; }
 
 .h1--logo {
-  font-weight: 900;
   text-transform: uppercase;
   color: #3c3c3c;
   /* ----
@@ -315,14 +325,24 @@ h1, .h1 {
       setting the number of lines other than $base-line-multi, line-height is 
       rounded to a multiple of those lines in rem's (to maintain vertical 
       rhythm)
-  [3] Line height function: if the line-height is left, rounded to a multiple 
-      of $base-line-height (to maintain vertical rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
   ---- */
   font-size: 1.3333333333rem;
-  line-height: 1.6875;
+  line-height: 2.2500000001;
   padding: 0; }
-  .h1--logo span {
+  .h1--logo__dot--home {
+    color: #888888; }
+  .h1--logo__dot--articles {
     color: #4281A4; }
+  .h1--logo__dot--photos {
+    color: #49D49D; }
+  .h1--logo__dot--code {
+    color: #9E768F; }
+  .h1--logo__dot--sport {
+    color: #F06449; }
+  .h1--logo__dot--links {
+    color: #E4B363; }
 
 /* --------------------------------------------------------
 
@@ -347,16 +367,12 @@ p {
   -o-hyphens: auto;
   hyphens: auto;
   word-wrap: break-word; }
-  p:last-child {
-    margin-bottom: 0; }
 
 /* @ inline elements @ ------------------------------------
 -------------------------------------------------------- */
-b,
 strong {
   font-weight: bold; }
 
-i,
 em {
   font-style: italic; }
 
@@ -368,8 +384,8 @@ small,
       setting the number of lines other than $base-line-multi, line-height is 
       rounded to a multiple of those lines in rem's (to maintain vertical 
       rhythm)
-  [3] Line height function: if the line-height is left, rounded to a multiple 
-      of $base-line-height (to maintain vertical rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
   ---- */
   font-size: 0.75rem;
   line-height: 2; }
@@ -455,14 +471,19 @@ blockquote {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   margin-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 1.5rem;
-  border-left: 0.375rem solid gray;
-  font-family: ""; }
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0;
+  border-left: 0.375rem solid #888888;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #eeeeee; }
+  @media (min-width: 768px) {
+    blockquote {
+      margin-left: -1.875rem;
+      padding-left: 1.5rem; } }
   blockquote p {
-    margin-bottom: 0.75rem; }
-  blockquote footer cite:before {
+    margin-bottom: 1.5rem; }
+  blockquote cite:before {
     content: " – "; }
 
 /**
@@ -490,6 +511,7 @@ blockquote {
 ------------------------------------------------------ */
 img {
   width: 100%;
+  display: block;
   height: auto;
   vertical-align: middle; }
 
@@ -568,22 +590,22 @@ files in the 04_molecules folder directly into site.scss
       setting the number of lines other than $base-line-multi, line-height is 
       rounded to a multiple of those lines in rem's (to maintain vertical 
       rhythm)
-  [3] Line height function: if the line-height is left, rounded to a multiple 
-      of $base-line-height (to maintain vertical rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
   ---- */
   font-size: 1rem;
   line-height: 2.25;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease-in-out; }
   .m-nav__list li a.nav-link--articles:hover {
-    border-bottom: 2px solid #4281A4; }
+    border-bottom: 3px solid #4281A4; }
   .m-nav__list li a.nav-link--photos:hover {
-    border-bottom: 2px solid #49D49D; }
+    border-bottom: 3px solid #49D49D; }
   .m-nav__list li a.nav-link--code:hover {
-    border-bottom: 2px solid #9E768F; }
-  .m-nav__list li a.nav-link--training:hover {
-    border-bottom: 2px solid #F06449; }
+    border-bottom: 3px solid #9E768F; }
+  .m-nav__list li a.nav-link--sport:hover {
+    border-bottom: 3px solid #F06449; }
   .m-nav__list li a.nav-link--links:hover {
-    border-bottom: 2px solid #E4B363; }
+    border-bottom: 3px solid #E4B363; }
   @media (max-width: 767px) {
     .m-nav__list li a {
       display: block;
@@ -594,14 +616,24 @@ files in the 04_molecules folder directly into site.scss
       transition: all 0.2s ease-in-out; }
       .m-nav__list li a.nav-link--articles {
         background-color: #4281A4; }
+        .m-nav__list li a.nav-link--articles:hover {
+          border-bottom: 0; }
       .m-nav__list li a.nav-link--photos {
         background-color: #49D49D; }
+        .m-nav__list li a.nav-link--photos:hover {
+          border-bottom: 0; }
       .m-nav__list li a.nav-link--code {
         background-color: #9E768F; }
-      .m-nav__list li a.nav-link--training {
+        .m-nav__list li a.nav-link--code:hover {
+          border-bottom: 0; }
+      .m-nav__list li a.nav-link--sport {
         background-color: #F06449; }
+        .m-nav__list li a.nav-link--sport:hover {
+          border-bottom: 0; }
       .m-nav__list li a.nav-link--links {
-        background-color: #E4B363; } }
+        background-color: #E4B363; }
+        .m-nav__list li a.nav-link--links:hover {
+          border-bottom: 0; } }
 
 #toggle-nav-label {
   display: none; }
@@ -744,142 +776,153 @@ ARTICLE
 Styles of articles
 
 -------------------------------------------------------- */
-.o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-.o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-  margin: 0 4%; }
+.o-article {
+  /*  div, object, iframe, h1, h2, h3, h4, h5, h6, p, dl, ol, 
+    ul, form, table {*/
+  margin-left: 4%;
+  margin-right: 4%; }
   @media (min-width: 480px) {
-    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-      margin: 0 8% 0 4%; } }
+    .o-article {
+      margin-left: 4%;
+      margin-right: 8%; } }
   @media (min-width: 640px) {
-    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-      margin: 0 6rem 0 3rem; } }
+    .o-article {
+      margin-left: 3rem;
+      margin-right: 6rem; } }
   @media (min-width: 768px) {
-    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-      margin: 0 9rem 0 0; } }
-  @media (min-width: 996px) {
-    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-      margin: 0 9rem 0 0; } }
+    .o-article {
+      margin-left: 0;
+      margin-right: 9rem; } }
   @media (min-width: 1140px) {
-    .o-article div, .o-article object, .o-article iframe, .o-article h1, .o-article h2, .o-article h3, .o-article h4, .o-article h5, .o-article h6, .o-article p, .o-article dl, .o-article ol,
-    .o-article ul, .o-article form, .o-article table, .o-article .img--portrait {
-      margin: 0 15rem 0 0; } }
-.o-article--photos {
-  width: 50%;
-  float: left; }
-  .o-article--photos:nth-child(2n + 1) {
-    margin-left: 0;
-    margin-right: -100%;
-    clear: both;
-    margin-left: 0; }
-  .o-article--photos:nth-child(2n + 2) {
-    margin-left: 50%;
-    margin-right: -100%;
-    clear: none; }
-  @media (min-width: 480px) {
-    .o-article--photos {
-      width: 33.3333333333%;
-      float: left; }
-      .o-article--photos:nth-child(3n + 1) {
-        margin-left: 0;
-        margin-right: -100%;
-        clear: both;
-        margin-left: 0; }
-      .o-article--photos:nth-child(3n + 2) {
-        margin-left: 33.3333333333%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(3n + 3) {
-        margin-left: 66.6666666667%;
-        margin-right: -100%;
-        clear: none; } }
-  @media (min-width: 640px) {
-    .o-article--photos {
-      width: 25%;
-      float: left; }
-      .o-article--photos:nth-child(4n + 1) {
-        margin-left: 0;
-        margin-right: -100%;
-        clear: both;
-        margin-left: 0; }
-      .o-article--photos:nth-child(4n + 2) {
-        margin-left: 25%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(4n + 3) {
-        margin-left: 50%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(4n + 4) {
-        margin-left: 75%;
-        margin-right: -100%;
-        clear: none; } }
-  @media (min-width: 768px) {
-    .o-article--photos {
-      width: 33.3333333333%;
-      float: left; }
-      .o-article--photos:nth-child(3n + 1) {
-        margin-left: 0;
-        margin-right: -100%;
-        clear: both;
-        margin-left: 0; }
-      .o-article--photos:nth-child(3n + 2) {
-        margin-left: 33.3333333333%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(3n + 3) {
-        margin-left: 66.6666666667%;
-        margin-right: -100%;
-        clear: none; } }
-  @media (min-width: 996px) {
-    .o-article--photos {
-      width: 25%;
-      float: left; }
-      .o-article--photos:nth-child(4n + 1) {
-        margin-left: 0;
-        margin-right: -100%;
-        clear: both;
-        margin-left: 0; }
-      .o-article--photos:nth-child(4n + 2) {
-        margin-left: 25%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(4n + 3) {
-        margin-left: 50%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(4n + 4) {
-        margin-left: 75%;
-        margin-right: -100%;
-        clear: none; } }
+    .o-article {
+      margin-left: 0;
+      margin-right: 15rem; } }
   @media (min-width: 1140px) {
-    .o-article--photos {
-      width: 20%;
-      float: left; }
-      .o-article--photos:nth-child(5n + 1) {
+    .o-article blockquote {
+      margin-right: -15rem;
+      padding-right: 15rem; } }
+  .o-article img {
+    margin-left: -4%;
+    margin-right: -4%;
+    width: 108%; }
+    @media (min-width: 1140px) {
+      .o-article img {
         margin-left: 0;
-        margin-right: -100%;
-        clear: both;
-        margin-left: 0; }
-      .o-article--photos:nth-child(5n + 2) {
-        margin-left: 20%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(5n + 3) {
-        margin-left: 40%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(5n + 4) {
-        margin-left: 60%;
-        margin-right: -100%;
-        clear: none; }
-      .o-article--photos:nth-child(5n + 5) {
-        margin-left: 80%;
-        margin-right: -100%;
-        clear: none; } }
+        margin-right: -15rem;
+        width: calc(100% + 15rem); } }
+  .o-article--photos {
+    width: 50%;
+    float: left; }
+    .o-article--photos:nth-child(2n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .o-article--photos:nth-child(2n + 2) {
+      margin-left: 50%;
+      margin-right: -100%;
+      clear: none; }
+    @media (min-width: 480px) {
+      .o-article--photos {
+        width: 33.3333333333%;
+        float: left; }
+        .o-article--photos:nth-child(3n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .o-article--photos:nth-child(3n + 2) {
+          margin-left: 33.3333333333%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(3n + 3) {
+          margin-left: 66.6666666667%;
+          margin-right: -100%;
+          clear: none; } }
+    @media (min-width: 640px) {
+      .o-article--photos {
+        width: 25%;
+        float: left; }
+        .o-article--photos:nth-child(4n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .o-article--photos:nth-child(4n + 2) {
+          margin-left: 25%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(4n + 3) {
+          margin-left: 50%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(4n + 4) {
+          margin-left: 75%;
+          margin-right: -100%;
+          clear: none; } }
+    @media (min-width: 768px) {
+      .o-article--photos {
+        width: 33.3333333333%;
+        float: left; }
+        .o-article--photos:nth-child(3n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .o-article--photos:nth-child(3n + 2) {
+          margin-left: 33.3333333333%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(3n + 3) {
+          margin-left: 66.6666666667%;
+          margin-right: -100%;
+          clear: none; } }
+    @media (min-width: 996px) {
+      .o-article--photos {
+        width: 25%;
+        float: left; }
+        .o-article--photos:nth-child(4n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .o-article--photos:nth-child(4n + 2) {
+          margin-left: 25%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(4n + 3) {
+          margin-left: 50%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(4n + 4) {
+          margin-left: 75%;
+          margin-right: -100%;
+          clear: none; } }
+    @media (min-width: 1140px) {
+      .o-article--photos {
+        width: 20%;
+        float: left; }
+        .o-article--photos:nth-child(5n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .o-article--photos:nth-child(5n + 2) {
+          margin-left: 20%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(5n + 3) {
+          margin-left: 40%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(5n + 4) {
+          margin-left: 60%;
+          margin-right: -100%;
+          clear: none; }
+        .o-article--photos:nth-child(5n + 5) {
+          margin-left: 80%;
+          margin-right: -100%;
+          clear: none; } }
 
 footer {
   margin: 0 4%; }
