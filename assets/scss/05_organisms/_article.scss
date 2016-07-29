@@ -10,79 +10,11 @@ Styles of articles
 
 -------------------------------------------------------- */
 
-
 .o-article {  
+  padding-bottom: vr(8);
   
-/*  div, object, iframe, h1, h2, h3, h4, h5, h6, p, dl, ol, 
-  ul, form, table {*/
-    margin-left: 4%;
-    margin-right: 4%;
-    
-    @include bp(x-small) {
-      margin-left: 4%;
-      margin-right: 8%;
-    }
-    
-    @include bp(small) {
-      margin-left: vr(8);
-      margin-right: vr(16);
-    }
-    
-    @include bp(medium) {
-      margin-left: 0;
-      margin-right: vr(24);
-    }
-    
-    @include bp(x-large) {
-      margin-left: 0;
-      margin-right: vr(40);
-    }
-    
-  blockquote {
-    @include bp(x-large) {
-      margin-right: -#{vr(40)};
-      padding-right: vr(40);
-    }
+  &--list {
+    padding-bottom: 0;
   }
-  img {
-      margin-left: -4%;
-      margin-right: -4%;
-    width: 108%;
-    @include bp(x-large) {
-      margin-left: 0;
-      margin-right: -#{vr(40)};
-      width: calc(100% + #{vr(40)});
-    }
-  }
-  
-//  }
-  
-  &--photos {
-    @include gallery(1 of 2 0);
-    
-    @include bp(x-small) {
-      @include gallery(1 of 3 0);
-    }
-    
-    @include bp(small) {
-      @include gallery(1 of 4 0);
-    }
-    
-    @include bp(medium) {
-      @include gallery(1 of 3 0);
-    }
-    
-    @include bp(large) {
-      @include gallery(1 of 4 0);
-    }
-    
-    @include bp(x-large) {
-      @include gallery(1 of 5 0);
-    }
-  }
-  
-  &--photo {
-    
-  }
-  
 }
+

@@ -1,12 +1,15 @@
 $black: #222;
 $white: #fff;
 
-$red: #F06449;
-$green: #49D49D;
-$blue: #4281A4;
-$orange: #E4B363;
-$purple: #9E768F; 
+// Colour pallette: http://www.colourlovers.com/palette/1919224/Window_dressing?sAC=1
 
+$red: #F02311;
+$green: #89D813;
+$blue: #188AAF;
+$orange: #F9880E;
+$yellow: #F9D33B; 
+
+$grey97: lighten($black, 3%);
 $grey90: lighten($black, 10%);
 $grey80: lighten($black, 20%);
 $grey70: lighten($black, 30%);
@@ -20,11 +23,69 @@ $grey10: lighten($black, 90%);
 $color-home: $grey60;
 $color-articles: $blue;
 $color-photos: $green;
-$color-code: $purple;
-$color-sport: $red;
-$color-links: $orange;
+$color-code: $orange;
+$color-sport: $yellow;
+$color-links: $red;
 
+$color-map: (
+    color-home: (
+      base: $color-home,
+      light: mix($white, $color-home, 97%),
+      c25: mix($white, $color-home, 75%),
+      c50: mix($white, $color-home, 50%),
+      c75: mix($white, $color-home, 25%),
+    ),
+    color-articles: (
+      base: $color-articles,
+      light: mix($white, $color-articles, 97%),
+      c25: mix($white, $color-articles, 75%),
+      c50: mix($white, $color-articles, 50%),
+      c75: mix($white, $color-articles, 25%),
+    ),
+    color-photos: (
+      base: $color-photos,
+      light: mix($white, $color-photos, 99%),
+      c25: mix($white, $color-photos, 75%),
+      c50: mix($white, $color-photos, 50%),
+      c75: mix($white, $color-photos, 25%),
+    ),
+    color-code: (
+      base: $color-code,
+      light: mix($white, $color-code, 97%),
+      c25: mix($white, $color-code, 75%),
+      c50: mix($white, $color-code, 50%),
+      c75: mix($white, $color-code, 25%),
+    ),
+    color-sport: (
+      base: $color-sport,
+      light: mix($white, $color-sport, 97%),
+      c25: mix($white, $color-sport, 75%),
+      c50: mix($white, $color-sport, 50%),
+      c75: mix($white, $color-sport, 25%),
+    ),
+    color-links: (
+      base: $color-links,
+      light: mix($white, $color-links, 99%),
+      c25: mix($white, $color-links, 75%),
+      c50: mix($white, $color-links, 50%),
+      c75: mix($white, $color-links, 25%),
+    ),
+);
 
+@function color($color, $tone: base) {
+    @return map-get(map-get($color-map, $color), $tone);
+}
+
+/*
+
+a {
+    color: color(purple);
+    &:hover {
+        color: color(purple, light);
+    }
+}
+
+*/
 
 $color-facebook: #3b5998;
 $color-twitter: #00aced;

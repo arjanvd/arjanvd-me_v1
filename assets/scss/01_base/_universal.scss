@@ -46,12 +46,12 @@ html {
 
 * {
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// For faster fontloading
+// For faster fontloading: https://www.filamentgroup.com/lab/font-events.html
 
 .fonts-loaded {
   & body {

@@ -29,17 +29,7 @@
 
 img {
   width: 100%;
-  display: block;
   height: auto;
   vertical-align: middle;
 }
 
-.img {
-  width: 100%;
-  height: auto;
-
-  &--portrait {
-    display: block;
-    width: 400px;
-  }
-}

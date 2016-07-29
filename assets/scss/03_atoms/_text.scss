@@ -1,34 +1,31 @@
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 TEXT
 
-===========================================================
+===============================================================================
 03_atoms/_text.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-Basic styles to block text elments (i.e. <p>) and 
-inline text elements (such as <b>)
+Basic styles to block text elments (i.e. <p>) and inline text elements (such as
+<strong>). Also, special elements specific to the design.
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 
 
-/* @ block elements @ -------------------------------------
--------------------------------------------------------- */
+/* @ block elements @ ---------------------------------------------------------
+---------------------------------------------------------------------------- */
 
 p {
   margin-bottom: vr(4);
-  -webkit-hyphens: auto;
-  -epub-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 
-/* @ inline elements @ ------------------------------------
--------------------------------------------------------- */
+/* @ inline elements @ --------------------------------------------------------
+---------------------------------------------------------------------------- */
  
 strong {
   // NOTE: use bold font-face if available instead of 'font-weight: bold'
@@ -41,8 +38,8 @@ em {
 }
 
 small,
-.font-small {
-  @include set-type($ms-down1);
+.small {
+  @include set-type($ms-down1, 3);
 }
 
 time,
@@ -58,5 +55,27 @@ abbr {
   &[title]:hover {
     // Cursor changed to a question mark when it has a title
     cursor: help;
+  }
+}
+
+
+/* @ special elements @ -------------------------------------------------------
+---------------------------------------------------------------------------- */
+
+.article {
+  &-link {
+    font-weight: 900;
+  }
+  &-type {
+    font-weight: 900;
+    @include set-type($ms-down2, 3);
+    text-transform: uppercase;
+    border: 1px solid $grey40;
+    padding: 2px;
+    vertical-align: middle;
+  }
+  &-date {
+    @include set-type($ms-down1, 3);
+    text-transform: uppercase;
   }
 }

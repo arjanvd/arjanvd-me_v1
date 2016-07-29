@@ -17,6 +17,16 @@ TABLE OF CONTENTS
 /*  -------------------------------------------------------
     @01_base
 -------------------------------------------------------- */
+/*
+
+a {
+    color: color(purple);
+    &:hover {
+        color: color(purple, light);
+    }
+}
+
+*/
 /* ----------------------------------------------------------------------------
 
 TYPE ON A MODULAR SCALE
@@ -195,36 +205,32 @@ html {
 /*  -------------------------------------------------------
     @layout
 -------------------------------------------------------- */
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 LAYOUT
 
-===========================================================
+===============================================================================
 02_layout/_layout.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 A portion of CSS is structural layout.
 
-This file is imported in site.scss, so all files in the 
-02_layout folder are imported. WARNING: do not import files 
-in the 02_layout folder directly into site.scss
+This file is imported in site.scss, so all files in the 02_layout folder are 
+imported. WARNING: do not import files in the 02_layout folder directly into 
+site.scss
 
--------------------------------------------------------- */
-/**
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
 
-  @body
---------------------------------------------------------
-  elements/_body.scss
---------------------------------------------------------
+CONTAINER
 
-  Body should contain the document's default font and
-  background color for the content, if that background
-  color is different than the html.
+===============================================================================
+02_layout/_container.scss
+-------------------------------------------------------------------------------
 
------------------------------------------------------- */
-.body--articles {
-  background: #f9fbfc; }
+Default container for use with susy (http://susy.oddbird.net)
 
+---------------------------------------------------------------------------- */
 .l-container {
   max-width: 1440px;
   margin-left: 0;
@@ -234,17 +240,17 @@ in the 02_layout folder directly into site.scss
     display: block;
     clear: both; }
 
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 WRAPPER
 
-===========================================================
+===============================================================================
 02_layout/_wrapper.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-Styles of wrappers
+Styles of wrappers - only meant for positioning
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 @media (min-width: 768px) {
   .l-wrapper--header {
     width: 20.5882352941%;
@@ -256,42 +262,166 @@ Styles of wrappers
     float: right;
     margin-right: 0; } }
 
+/* ----------------------------------------------------------------------------
+
+WRAPPER
+
+===============================================================================
+02_layout/_block.scss
+-------------------------------------------------------------------------------
+
+Styles of blocks -- descendants of wrappers only meant for positioning
+
+---------------------------------------------------------------------------- */
+.l-block--content {
+  margin-left: 1.125rem;
+  margin-right: 1.125rem; }
+  @media (min-width: 480px) {
+    .l-block--content {
+      margin-left: 1.125rem;
+      margin-right: 2.25rem; } }
+  @media (min-width: 640px) {
+    .l-block--content {
+      margin-left: 3rem;
+      margin-right: 4.5rem; } }
+  @media (min-width: 768px) {
+    .l-block--content {
+      margin-left: 0;
+      margin-right: 6rem; } }
+  @media (min-width: 996px) {
+    .l-block--content {
+      margin-right: 9rem; } }
+  @media (min-width: 1140px) {
+    .l-block--content {
+      margin-right: 15rem; } }
+  .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+    margin-left: -1.125rem;
+    margin-right: -1.125rem; }
+    @media (min-width: 480px) {
+      .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+        margin-right: -2.25rem; } }
+    @media (min-width: 640px) {
+      .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+        margin-left: -3rem;
+        margin-right: -4.5rem; } }
+    @media (min-width: 768px) {
+      .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+        margin-left: -1.875rem;
+        margin-right: -6rem; } }
+    @media (min-width: 996px) {
+      .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+        margin-right: -9rem; } }
+    @media (min-width: 1140px) {
+      .l-block--content blockquote, .l-block--content pre, .l-block--content table {
+        margin-right: -15rem; } }
+  .l-block--content figure, .l-block--content .img--landscape {
+    margin-left: -1.125rem;
+    margin-right: -1.125rem;
+    width: calc(100% + 2.25rem); }
+    @media (min-width: 480px) {
+      .l-block--content figure, .l-block--content .img--landscape {
+        margin-right: -2.25rem;
+        width: calc(100% + 3.375rem); } }
+    @media (min-width: 640px) {
+      .l-block--content figure, .l-block--content .img--landscape {
+        margin-left: -3rem;
+        margin-right: -4.5rem;
+        width: calc(100% + 7.5rem); } }
+    @media (min-width: 768px) {
+      .l-block--content figure, .l-block--content .img--landscape {
+        margin-left: 0;
+        margin-right: -6rem;
+        width: calc(100% + 6rem); } }
+    @media (min-width: 996px) {
+      .l-block--content figure, .l-block--content .img--landscape {
+        margin-right: -9rem;
+        width: calc(100% + 9rem); } }
+    @media (min-width: 1140px) {
+      .l-block--content figure, .l-block--content .img--landscape {
+        margin-right: -15rem;
+        width: calc(100% + 15rem); } }
+@media (min-width: 480px) {
+  .l-block--footer--about {
+    width: 47.0588235294%;
+    float: left;
+    margin-right: 5.8823529412%; } }
+@media (min-width: 480px) {
+  .l-block--footer--web {
+    width: 47.0588235294%;
+    float: right;
+    margin-right: 0; } }
+
 /*  -------------------------------------------------------
     @atoms
 -------------------------------------------------------- */
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 ATOMS
 
-===========================================================
+===============================================================================
 03_atoms/_atoms.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 From http://atomicdesign.bradfrost.com/chapter-2/:
 
-  Atoms of our interfaces serve as the foundational 
-  building blocks that comprise all our user interfaces. 
-  Therefore these atoms would include basic HTML tags like 
-  form labels, inputs, buttons, and other elements that 
-  can’t be broken down any further without ceasing to be 
-  functional.
+  Atoms of our interfaces serve as the foundational building blocks that 
+  comprise all our user interfaces. Therefore these atoms would include basic 
+  HTML tags like form labels, inputs, buttons, and other elements that can’t be 
+  broken down any further without ceasing to be functional.
 
-This file is imported in site.scss, so all files in the 
-03_atoms folder are imported. WARNING: do not import 
-files in the 03_atoms folder directly into site.scss
+This file is imported in site.scss, so all files in the 03_atoms folder are 
+imported. WARNING: do not import files in the 03_atoms folder directly into 
+site.scss
 
--------------------------------------------------------- */
-/* --------------------------------------------------------
+---------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------
+
+BODY
+
+===============================================================================
+03_atoms/_body.scss
+-------------------------------------------------------------------------------
+
+Basic styles for body. [NOTE] 01_base/_universal.scss contains font-styles for
+body, because of the way faster font-loading works.
+
+---------------------------------------------------------------------------- */
+.body--home {
+  background: #fbfbfb; }
+  .body--home .dot {
+    color: #888888; }
+.body--articles {
+  background: #f8fbfd; }
+  .body--articles .dot {
+    color: #188AAF; }
+.body--photos {
+  background: #fefffd; }
+  .body--photos .dot {
+    color: #89D813; }
+.body--code {
+  background: #fffbf8; }
+  .body--code .dot {
+    color: #F9880E; }
+.body--sport {
+  background: #fffef9; }
+  .body--sport .dot {
+    color: #F9D33B; }
+.body--links {
+  background: #fffdfd; }
+  .body--links .dot {
+    color: #F02311; }
+
+/* ----------------------------------------------------------------------------
 
 HEADINGS
 
-===========================================================
+===============================================================================
 03_atoms/_headings.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 Basic styles to h1 - h6
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -301,7 +431,7 @@ h6, .h6 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 900; }
 
-h1, .h1 {
+.h1 {
   color: #3c3c3c;
   /* ----
   [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
@@ -334,42 +464,77 @@ h1, .h1 {
   .h1--logo__dot--home {
     color: #888888; }
   .h1--logo__dot--articles {
-    color: #4281A4; }
+    color: #188AAF; }
   .h1--logo__dot--photos {
-    color: #49D49D; }
+    color: #89D813; }
   .h1--logo__dot--code {
-    color: #9E768F; }
+    color: #F9880E; }
   .h1--logo__dot--sport {
-    color: #F06449; }
+    color: #F9D33B; }
   .h1--logo__dot--links {
-    color: #E4B363; }
+    color: #F02311; }
 
-/* --------------------------------------------------------
+.h2 {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1.7777777777rem;
+  line-height: 1.6875000001; }
+
+.h3 {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1.3333333333rem;
+  line-height: 1.125; }
+
+.h4 {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400; }
+
+/* ----------------------------------------------------------------------------
 
 TEXT
 
-===========================================================
+===============================================================================
 03_atoms/_text.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-Basic styles to block text elments (i.e. <p>) and 
-inline text elements (such as <b>)
+Basic styles to block text elments (i.e. <p>) and inline text elements (such as
+<strong>). Also, special elements specific to the design.
 
--------------------------------------------------------- */
-/* @ block elements @ -------------------------------------
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
+/* @ block elements @ ---------------------------------------------------------
+---------------------------------------------------------------------------- */
 p {
-  margin-bottom: 1.5rem;
-  -webkit-hyphens: auto;
-  -epub-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word; }
+  margin-bottom: 1.5rem; }
+  p:last-child {
+    margin-bottom: 0; }
 
-/* @ inline elements @ ------------------------------------
--------------------------------------------------------- */
+/* @ inline elements @ --------------------------------------------------------
+---------------------------------------------------------------------------- */
 strong {
   font-weight: bold; }
 
@@ -377,7 +542,7 @@ em {
   font-style: italic; }
 
 small,
-.font-small {
+.small {
   /* ----
   [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
   [2] Line height function: if a line-height is specified in the mixin by 
@@ -388,7 +553,7 @@ small,
       to a multiple of $base-line-height (to maintain vertical rhythm)
   ---- */
   font-size: 0.75rem;
-  line-height: 2; }
+  line-height: 1.5; }
 
 time,
 .time {
@@ -401,54 +566,144 @@ abbr {
   abbr[title]:hover {
     cursor: help; }
 
-/* --------------------------------------------------------
+/* @ special elements @ -------------------------------------------------------
+---------------------------------------------------------------------------- */
+.article-link {
+  font-weight: 900; }
+.article-type {
+  font-weight: 900;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.5625rem;
+  line-height: 1.9999999999;
+  text-transform: uppercase;
+  border: 1px solid #bbbbbb;
+  padding: 2px;
+  vertical-align: middle; }
+.article-date {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-transform: uppercase; }
+
+/**
+
+  @links
+--------------------------------------------------------
+  elements/_links.scss
+--------------------------------------------------------
+
+  Links, <a> etc. & Webkit tap highlight
+
+  Example: link
+  <p>Lorem Ipsum is simply <a href="#">dummy text</a> of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+-------------------------------------------------------- */
+/* @anchors
+--------------------------------------------------------
+
+  Anchors will have this base styling
+
+------------------------------------------------------ */
+a {
+  text-decoration: none; }
+  a:visited {
+    opacity: .5; }
+  a:hover {
+    text-decoration: underline;
+    text-shadow: 0 1px 1px #eeeeee; }
+  a:focus {
+    padding-top: 2px;
+    opacity: .75; }
+  a:active {
+    opacity: .9; }
+
+.body--links a {
+  color: #F02311; }
+
+.body--articles a {
+  color: #188AAF; }
+
+/* @webkit-tap-highlight
+--------------------------------------------------------
+
+  Declare the webkit tap highlight style
+
+------------------------------------------------------ */
+body {
+  -webkit-tap-highlight-color: rba(0, 0, 0, 0.35); }
+
+/* ----------------------------------------------------------------------------
 
 CODE
 
-===========================================================
+===============================================================================
 03_atoms/_code.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-Basic styles to block code elements (i.e. <pre>) and 
-inline code elements (i.e. <code>)
+Basic styles to block code elements (<pre>) and inline code elements (<code>)
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 code,
 pre {
   font-family: "Ubuntu Mono", Monaco, monospace; }
 
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 LISTS
 
-===========================================================
+===============================================================================
 03_atoms/_lists.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 Basic styles to list elements
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
+/* @ all lists @ --------------------------------------------------------------
+---------------------------------------------------------------------------- */
 ol,
 ul,
 dl {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  margin-left: 1.5rem;
-  padding-top: 0;
-  padding-bottom: 0; }
+  margin-bottom: 1.5rem; }
 
 ul ul,
 ol ol,
 dl dl {
-  margin-left: 0; }
+  margin-left: 1.5rem;
+  margin-bottom: 0; }
+  ul ul:last-child,
+  ol ol:last-child,
+  dl dl:last-child {
+    margin-bottom: 1.5rem; }
 
+/* @ unordered lists @ --------------------------------------------------------
+---------------------------------------------------------------------------- */
 ul {
   list-style: disc; }
+  ul ul {
+    list-style: circle; }
   ul.ul--reset {
     list-style: none;
     margin: 0;
     padding: 0; }
 
+/* @ ordered lists @ ---------------------------------------------------------
+---------------------------------------------------------------------------- */
 ol {
   list-style: decimal; }
   ol.ol--reset {
@@ -456,33 +711,50 @@ ol {
     margin: 0;
     padding: 0; }
 
-/* --------------------------------------------------------
+.ol--articles {
+  list-style: none; }
+  @media (min-width: 640px) {
+    .ol--articles {
+      list-style: decimal; } }
+
+/* ----------------------------------------------------------------------------
 
 QUOTES
 
-===========================================================
+===============================================================================
 03_atoms/_quotes.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 Basic styles to blockquotes and pullquotes
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 blockquote {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  margin-left: 0;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  padding-left: 0;
+  padding-left: 0.75rem;
+  padding-right: 1.125rem;
   border-left: 0.375rem solid #888888;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #eeeeee; }
+  @media (min-width: 480px) {
+    blockquote {
+      padding-right: 2.25rem; } }
+  @media (min-width: 640px) {
+    blockquote {
+      padding-left: 2.625rem;
+      padding-right: 4.5rem; } }
   @media (min-width: 768px) {
     blockquote {
-      margin-left: -1.875rem;
-      padding-left: 1.5rem; } }
-  blockquote p {
-    margin-bottom: 1.5rem; }
+      padding-left: 1.5rem;
+      padding-right: 6rem; } }
+  @media (min-width: 996px) {
+    blockquote {
+      padding-right: 9rem; } }
+  @media (min-width: 1140px) {
+    blockquote {
+      padding-right: 15rem; } }
   blockquote cite:before {
     content: " – "; }
 
@@ -511,40 +783,31 @@ blockquote {
 ------------------------------------------------------ */
 img {
   width: 100%;
-  display: block;
   height: auto;
   vertical-align: middle; }
-
-.img {
-  width: 100%;
-  height: auto; }
-  .img--portrait {
-    display: block;
-    width: 400px; }
 
 /*  -------------------------------------------------------
     @molecules
 -------------------------------------------------------- */
-/* --------------------------------------------------------
+/* ----------------------------------------------------------------------------
 
 MOLECULES
 
-===========================================================
+===============================================================================
 04_molecules/_molecules.scss
------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 From: http://atomicdesign.bradfrost.com/chapter-2/
 
-  In interfaces, molecules are relatively simple groups of 
-  UI elements functioning together as a unit. For example, 
-  a form label, search input, and button can combine them 
-  together to create a search form molecule.
+  In interfaces, molecules are relatively simple groups of UI elements 
+  functioning together as a unit. For example, a form label, search input, and 
+  button can combine them together to create a search form molecule.
 
-This file is imported in site.scss, so all files in the 
-04_molecules folder are imported. WARNING: do not import 
-files in the 04_molecules folder directly into site.scss
+This file is imported in site.scss, so all files in the 04_molecules folder are 
+imported. WARNING: do not import files in the 04_molecules folder directly into 
+site.scss
 
--------------------------------------------------------- */
+---------------------------------------------------------------------------- */
 .m-logo {
   margin-right: auto; }
   @media (min-width: 768px) {
@@ -597,15 +860,60 @@ files in the 04_molecules folder directly into site.scss
   line-height: 2.25;
   transition: all 0.3s ease-in-out; }
   .m-nav__list li a.nav-link--articles:hover {
-    border-bottom: 3px solid #4281A4; }
+    color: #188AAF; }
+    .m-nav__list li a.nav-link--articles:hover:before {
+      content: '✎';
+      margin-right: 0.75rem;
+      color: #188AAF; }
+  .m-nav__list li a.nav-link--articles.active {
+    color: #188AAF; }
+    .m-nav__list li a.nav-link--articles.active:before {
+      content: '✎';
+      margin-right: 0.75rem; }
   .m-nav__list li a.nav-link--photos:hover {
-    border-bottom: 3px solid #49D49D; }
+    color: #89D813; }
+    .m-nav__list li a.nav-link--photos:hover:before {
+      content: '⧈';
+      margin-right: 0.75rem;
+      color: #89D813; }
+  .m-nav__list li a.nav-link--photos.active {
+    color: #89D813; }
+    .m-nav__list li a.nav-link--photos.active:before {
+      content: '⧈';
+      margin-right: 0.75rem; }
   .m-nav__list li a.nav-link--code:hover {
-    border-bottom: 3px solid #9E768F; }
+    color: #F9880E; }
+    .m-nav__list li a.nav-link--code:hover:before {
+      content: '⚒';
+      margin-right: 0.75rem;
+      color: #F9880E; }
+  .m-nav__list li a.nav-link--code.active {
+    color: #F9880E; }
+    .m-nav__list li a.nav-link--code.active:before {
+      content: '⚒';
+      margin-right: 0.75rem; }
   .m-nav__list li a.nav-link--sport:hover {
-    border-bottom: 3px solid #F06449; }
+    color: #F9D33B; }
+    .m-nav__list li a.nav-link--sport:hover:before {
+      content: '⦿';
+      margin-right: 0.75rem;
+      color: #F9D33B; }
+  .m-nav__list li a.nav-link--sport.active {
+    color: #F9D33B; }
+    .m-nav__list li a.nav-link--sport.active:before {
+      content: '⦿';
+      margin-right: 0.75rem; }
   .m-nav__list li a.nav-link--links:hover {
-    border-bottom: 3px solid #E4B363; }
+    color: #F02311; }
+    .m-nav__list li a.nav-link--links:hover:before {
+      content: '☍';
+      margin-right: 0.75rem;
+      color: #F02311; }
+  .m-nav__list li a.nav-link--links.active {
+    color: #F02311; }
+    .m-nav__list li a.nav-link--links.active:before {
+      content: '☍';
+      margin-right: 0.75rem; }
   @media (max-width: 767px) {
     .m-nav__list li a {
       display: block;
@@ -615,24 +923,29 @@ files in the 04_molecules folder directly into site.scss
       opacity: 0.8;
       transition: all 0.2s ease-in-out; }
       .m-nav__list li a.nav-link--articles {
-        background-color: #4281A4; }
+        background-color: #188AAF; }
         .m-nav__list li a.nav-link--articles:hover {
+          color: #fff;
           border-bottom: 0; }
       .m-nav__list li a.nav-link--photos {
-        background-color: #49D49D; }
+        background-color: #89D813; }
         .m-nav__list li a.nav-link--photos:hover {
+          color: #fff;
           border-bottom: 0; }
       .m-nav__list li a.nav-link--code {
-        background-color: #9E768F; }
+        background-color: #F9880E; }
         .m-nav__list li a.nav-link--code:hover {
+          color: #fff;
           border-bottom: 0; }
       .m-nav__list li a.nav-link--sport {
-        background-color: #F06449; }
+        background-color: #F9D33B; }
         .m-nav__list li a.nav-link--sport:hover {
+          color: #fff;
           border-bottom: 0; }
       .m-nav__list li a.nav-link--links {
-        background-color: #E4B363; }
+        background-color: #F02311; }
         .m-nav__list li a.nav-link--links:hover {
+          color: #fff;
           border-bottom: 0; } }
 
 #toggle-nav-label {
@@ -715,6 +1028,202 @@ files in the 04_molecules folder directly into site.scss
   left: 50%;
   background: #fff; }
 
+figure {
+  margin-bottom: 1.5rem; }
+
+figcaption {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #6f6f6f;
+  margin-top: 0.375rem;
+  padding-left: 1.125rem;
+  padding-right: 1.125rem; }
+  @media (min-width: 480px) {
+    figcaption {
+      padding-right: 2.25rem; } }
+  @media (min-width: 640px) {
+    figcaption {
+      padding-left: 3rem;
+      padding-right: 4.5rem; } }
+  @media (min-width: 768px) {
+    figcaption {
+      padding-left: 0;
+      padding-right: 6rem; } }
+  @media (min-width: 996px) {
+    figcaption {
+      padding-right: 9rem; } }
+  @media (min-width: 1140px) {
+    figcaption {
+      padding-right: 15rem; } }
+
+.m-gallery {
+  width: 50%;
+  float: left; }
+  .m-gallery:nth-child(2n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0; }
+  .m-gallery:nth-child(2n + 2) {
+    margin-left: 50%;
+    margin-right: -100%;
+    clear: none; }
+  @media (min-width: 480px) {
+    .m-gallery {
+      width: 33.3333333333%;
+      float: left; }
+      .m-gallery:nth-child(3n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery:nth-child(3n + 2) {
+        margin-left: 33.3333333333%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(3n + 3) {
+        margin-left: 66.6666666667%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 640px) {
+    .m-gallery {
+      width: 25%;
+      float: left; }
+      .m-gallery:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 768px) {
+    .m-gallery {
+      width: 33.3333333333%;
+      float: left; }
+      .m-gallery:nth-child(3n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery:nth-child(3n + 2) {
+        margin-left: 33.3333333333%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(3n + 3) {
+        margin-left: 66.6666666667%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 996px) {
+    .m-gallery {
+      width: 25%;
+      float: left; }
+      .m-gallery:nth-child(4n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery:nth-child(4n + 2) {
+        margin-left: 25%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(4n + 3) {
+        margin-left: 50%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(4n + 4) {
+        margin-left: 75%;
+        margin-right: -100%;
+        clear: none; } }
+  @media (min-width: 1140px) {
+    .m-gallery {
+      width: 20%;
+      float: left; }
+      .m-gallery:nth-child(5n + 1) {
+        margin-left: 0;
+        margin-right: -100%;
+        clear: both;
+        margin-left: 0; }
+      .m-gallery:nth-child(5n + 2) {
+        margin-left: 20%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(5n + 3) {
+        margin-left: 40%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(5n + 4) {
+        margin-left: 60%;
+        margin-right: -100%;
+        clear: none; }
+      .m-gallery:nth-child(5n + 5) {
+        margin-left: 80%;
+        margin-right: -100%;
+        clear: none; } }
+
+.m-article-articles__number {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #888888; }
+.m-article-articles__item {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem; }
+.m-article-links {
+  margin-bottom: 1.5rem; }
+  .m-article-links__header {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #6f6f6f;
+    /* ----
+    [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+    [2] Line height function: if a line-height is specified in the mixin by 
+        setting the number of lines other than $base-line-multi, line-height is 
+        rounded to a multiple of those lines in rem's (to maintain vertical 
+        rhythm)
+    [3] Line height function: if the line-height is left, line-height is rounded
+        to a multiple of $base-line-height (to maintain vertical rhythm)
+    ---- */
+    font-size: 1rem;
+    line-height: 1.125;
+    margin-bottom: 0.375rem; }
+
 /*  -------------------------------------------------------
     @organisms
 -------------------------------------------------------- */
@@ -753,13 +1262,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 4%; }
+  margin: 0 1.125rem; }
   @media (min-width: 480px) {
     header {
-      margin: 0 8% 0 4%; } }
+      margin: 0 2.25rem 0 1.125rem; } }
   @media (min-width: 640px) {
     header {
-      margin: 0 6rem 0 3rem; } }
+      margin: 0 4.5rem 0 3rem; } }
   @media (min-width: 768px) {
     header {
       display: block;
@@ -777,167 +1286,9 @@ Styles of articles
 
 -------------------------------------------------------- */
 .o-article {
-  /*  div, object, iframe, h1, h2, h3, h4, h5, h6, p, dl, ol, 
-    ul, form, table {*/
-  margin-left: 4%;
-  margin-right: 4%; }
-  @media (min-width: 480px) {
-    .o-article {
-      margin-left: 4%;
-      margin-right: 8%; } }
-  @media (min-width: 640px) {
-    .o-article {
-      margin-left: 3rem;
-      margin-right: 6rem; } }
-  @media (min-width: 768px) {
-    .o-article {
-      margin-left: 0;
-      margin-right: 9rem; } }
-  @media (min-width: 1140px) {
-    .o-article {
-      margin-left: 0;
-      margin-right: 15rem; } }
-  @media (min-width: 1140px) {
-    .o-article blockquote {
-      margin-right: -15rem;
-      padding-right: 15rem; } }
-  .o-article img {
-    margin-left: -4%;
-    margin-right: -4%;
-    width: 108%; }
-    @media (min-width: 1140px) {
-      .o-article img {
-        margin-left: 0;
-        margin-right: -15rem;
-        width: calc(100% + 15rem); } }
-  .o-article--photos {
-    width: 50%;
-    float: left; }
-    .o-article--photos:nth-child(2n + 1) {
-      margin-left: 0;
-      margin-right: -100%;
-      clear: both;
-      margin-left: 0; }
-    .o-article--photos:nth-child(2n + 2) {
-      margin-left: 50%;
-      margin-right: -100%;
-      clear: none; }
-    @media (min-width: 480px) {
-      .o-article--photos {
-        width: 33.3333333333%;
-        float: left; }
-        .o-article--photos:nth-child(3n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .o-article--photos:nth-child(3n + 2) {
-          margin-left: 33.3333333333%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(3n + 3) {
-          margin-left: 66.6666666667%;
-          margin-right: -100%;
-          clear: none; } }
-    @media (min-width: 640px) {
-      .o-article--photos {
-        width: 25%;
-        float: left; }
-        .o-article--photos:nth-child(4n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .o-article--photos:nth-child(4n + 2) {
-          margin-left: 25%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(4n + 3) {
-          margin-left: 50%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(4n + 4) {
-          margin-left: 75%;
-          margin-right: -100%;
-          clear: none; } }
-    @media (min-width: 768px) {
-      .o-article--photos {
-        width: 33.3333333333%;
-        float: left; }
-        .o-article--photos:nth-child(3n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .o-article--photos:nth-child(3n + 2) {
-          margin-left: 33.3333333333%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(3n + 3) {
-          margin-left: 66.6666666667%;
-          margin-right: -100%;
-          clear: none; } }
-    @media (min-width: 996px) {
-      .o-article--photos {
-        width: 25%;
-        float: left; }
-        .o-article--photos:nth-child(4n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .o-article--photos:nth-child(4n + 2) {
-          margin-left: 25%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(4n + 3) {
-          margin-left: 50%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(4n + 4) {
-          margin-left: 75%;
-          margin-right: -100%;
-          clear: none; } }
-    @media (min-width: 1140px) {
-      .o-article--photos {
-        width: 20%;
-        float: left; }
-        .o-article--photos:nth-child(5n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .o-article--photos:nth-child(5n + 2) {
-          margin-left: 20%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(5n + 3) {
-          margin-left: 40%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(5n + 4) {
-          margin-left: 60%;
-          margin-right: -100%;
-          clear: none; }
-        .o-article--photos:nth-child(5n + 5) {
-          margin-left: 80%;
-          margin-right: -100%;
-          clear: none; } }
-
-footer {
-  margin: 0 4%; }
-  @media (min-width: 480px) {
-    footer {
-      margin: 0 8% 0 4%; } }
-  @media (min-width: 640px) {
-    footer {
-      margin: 0 6rem 0 3rem; } }
-  @media (min-width: 768px) {
-    footer {
-      margin: 0; } }
-  @media (min-width: 996px) {
-    footer {
-      margin: 0; } }
+  padding-bottom: 3rem; }
+  .o-article--list {
+    padding-bottom: 0; }
 
 /* --------------------------------------------------------------
 

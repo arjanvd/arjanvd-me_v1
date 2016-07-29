@@ -14,14 +14,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 4%;
+  margin: 0 vr(3);
     
   @include bp(x-small) {
-    margin: 0 8% 0 4%;
+    margin: 0 vr(6) 0 vr(3);
   }
       
   @include bp(small) {
-    margin: 0 vr(16) 0 vr(8);
+    margin: 0 vr(12) 0 vr(8);
   }
 
   @include bp(medium) {

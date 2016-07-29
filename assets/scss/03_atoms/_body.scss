@@ -1,0 +1,59 @@
+/* ----------------------------------------------------------------------------
+
+BODY
+
+===============================================================================
+03_atoms/_body.scss
+-------------------------------------------------------------------------------
+
+Basic styles for body. [NOTE] 01_base/_universal.scss contains font-styles for
+body, because of the way faster font-loading works.
+
+---------------------------------------------------------------------------- */
+
+
+body {
+}
+
+.body {
+  
+  &--home {
+    background: color(color-home, light);
+    & .dot {
+      color: $color-home;
+    }
+  }
+  
+  &--articles {
+    background: color(color-articles, light);
+    & .dot {
+      color: $color-articles;
+    }
+  }
+  &--photos {
+    background: color(color-photos, light);
+    & .dot {
+      color: $color-photos;
+    }
+  }
+  &--code {
+    background: color(color-code, light);
+    & .dot {
+      color: $color-code;
+    }
+  }
+  &--sport {
+    background: color(color-sport, light);
+    & .dot {
+      color: $color-sport;
+    }
+  }
+  &--links {
+    background: color(color-links, light);
+    & .dot {
+      color: $color-links;
+    }
+  }
+  
+}
+

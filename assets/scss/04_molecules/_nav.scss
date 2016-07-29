@@ -46,22 +46,92 @@
   transition: all 0.3s ease-in-out;
   
   &.nav-link {
-      &--articles:hover {
-        border-bottom: 3px solid $blue;
+    &--articles {
+      &:hover {
+        color: $color-articles;
+        &:before {
+          content: '✎';
+          margin-right: vr(2);
+          color: $color-articles;
+        }
       }
-      &--photos:hover {
-        border-bottom: 3px solid $green;
-      }
-      &--code:hover {
-        border-bottom: 3px solid $purple;
-      }
-      &--sport:hover {
-        border-bottom: 3px solid $red;
-      }
-      &--links:hover {
-        border-bottom: 3px solid $orange;
+      &.active {
+        color: $color-articles;
+        &:before {
+          content: '✎';
+          margin-right: vr(2);
+        }
       }
     }
+    &--photos {
+      &:hover {
+        color: $color-photos;
+        &:before {
+          content: '⧈';
+          margin-right: vr(2);
+          color: $color-photos;
+        }
+      }
+      &.active {
+        color: $color-photos;
+        &:before {
+        content: '⧈';
+        margin-right: vr(2);
+        }
+      }
+    }
+    &--code {
+      &:hover {
+        color: $color-code;
+        &:before {
+          content: '⚒';
+          margin-right: vr(2);
+          color: $color-code;
+        }
+      }
+      &.active {
+        color: $color-code;
+        &:before {
+          content: '⚒';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--sport {
+      &:hover {
+        color: $color-sport;
+        &:before {
+          content: '⦿';
+          margin-right: vr(2);
+          color: $color-sport;
+        }
+      }
+      &.active {
+        color: $color-sport;
+        &:before {
+          content: '⦿';
+          margin-right: vr(2);
+        }
+      }
+    }
+    &--links {
+      &:hover {
+        color: $color-links;
+        &:before {
+          content: '☍';
+          margin-right: vr(2);
+          color: $color-links;
+        }
+      }
+      &.active {
+        color: $color-links;
+        &:before {
+          content: '☍';
+          margin-right: vr(2);
+        }
+      }
+    }
+  }
   
   @include bp(mobile-nav) {
     display: block;
@@ -73,38 +143,44 @@
     
     &.nav-link {
       &--articles {
-        background-color: $blue;
+        background-color: $color-articles;
         &:hover {
+          color: $white;
           border-bottom: 0;
         }
       }
       &--photos {
-        background-color: $green;
+        background-color: $color-photos;
         &:hover {
+          color: $white;
           border-bottom: 0;
         }
       }
       &--code {
-        background-color: $purple;
+        background-color: $color-code;
         &:hover {
+          color: $white;
           border-bottom: 0;
         }
       }
       &--sport {
-        background-color: $red;
+        background-color: $color-sport;
         &:hover {
+          color: $white;
           border-bottom: 0;
         }
       }
       &--links {
-        background-color: $orange;
+        background-color: $color-links;
         &:hover {
+          color: $white;
           border-bottom: 0;
         }
       }
     }
   }
 }
+
 
 #toggle-nav-label {
   display: none;
