@@ -11,6 +11,13 @@ Styles of blocks -- descendants of wrappers only meant for positioning
 ---------------------------------------------------------------------------- */
 
 .l-block {
+  
+  &--index {
+    
+    &__item {
+      margin-bottom: vr(8);
+    }
+  }
 
   &--content {
     margin-left: vr(3);
@@ -98,20 +105,58 @@ Styles of blocks -- descendants of wrappers only meant for positioning
         width: calc(100% + #{vr(40)});
       }
     }
+    
+    .img--portrait {
+      margin-left: -#{vr(3)};
+      margin-right: -#{vr(3)};
+      width: calc(100% + #{vr(6)});
+
+      @include bp(x-small) {
+        margin-right: -#{vr(6)};
+        width: calc(100% + #{vr(9)});
+      }
+
+      @include bp(small) {
+        margin-left: -#{vr(8)};
+        margin-right: -#{vr(12)};
+        width: calc(100% + #{vr(20)});
+      }
+      
+      @include bp(medium) {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
   }
   
   &--footer {
   
     &--about {
+      margin-bottom: vr(2);
+      
       @include bp(x-small) {
-        @include span(6 of 12);
+        @include span(7 of 12);
+      }
+      
+      @include bp(small) {
+        @include span(8 of 12);
       }
     }
     &--web {
+      margin-bottom: vr(2);
+      
       @include bp(x-small) {
-        @include span(6 of 12 last);
+        @include span(5 of 12 last);
       }
-    }  
+      
+      @include bp(small) {
+        @include span(4 at 9 of 12 last);
+      }
+    }
+    &--copy {
+      @include span(12 of 12 last);
+    }
   }
   
 }

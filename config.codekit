@@ -717,15 +717,31 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/assets\/scss\/05_organisms\/_article.scss": {
+	"\/assets\/scss\/04_molecules\/_navigation.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/scss\/05_organisms\/_article.scss",
-		"outputAbbreviatedPath": "\/assets\/scss\/css\/_article.css",
+		"inputAbbreviatedPath": "\/assets\/scss\/04_molecules\/_navigation.scss",
+		"outputAbbreviatedPath": "\/assets\/scss\/css\/_navigation.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/assets\/scss\/05_organisms\/_content.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/05_organisms\/_content.scss",
+		"outputAbbreviatedPath": "\/assets\/scss\/css\/_content.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -837,6 +853,17 @@
 		"initialSize": 3.80738e+06,
 		"inputAbbreviatedPath": "\/images\/4.jpg",
 		"outputAbbreviatedPath": "\/images\/4.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/portrait.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 471648,
+		"inputAbbreviatedPath": "\/images\/portrait.jpg",
+		"outputAbbreviatedPath": "\/images\/portrait.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

@@ -68,3 +68,11 @@ html {
     font-family: $font-heading;
   }
 }
+
+// clearfix hack
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

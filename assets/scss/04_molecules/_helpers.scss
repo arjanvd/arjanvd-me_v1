@@ -1,9 +1,4 @@
 .hidden {
   display: none;
-  
-  &--contact {
-    @include bp(small) {
-      display: none;
-    }
-  }
 }
+

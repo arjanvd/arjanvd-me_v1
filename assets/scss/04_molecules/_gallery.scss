@@ -1,25 +1,29 @@
 
 
 .m-gallery {
-  @include gallery(1 of 2 0);
-
-  @include bp(x-small) {
-    @include gallery(1 of 3 0);
+  
+  &--index {
+  margin-bottom: vr(2);
   }
+  &__item {
+    @include gallery(1 of 2 0);
 
-  @include bp(small) {
-    @include gallery(1 of 4 0);
-  }
+    @include bp(x-small) {
+      @include gallery(1 of 2 0); // 3
+    }
 
-  @include bp(medium) {
-    @include gallery(1 of 3 0);
-  }
+    @include bp(small) {
+      @include gallery(1 of 4 0); // 4
+    }
 
-  @include bp(large) {
-    @include gallery(1 of 4 0);
-  }
+    @include bp(medium) {
+      @include gallery(1 of 2 0); // 3
+    }
 
-  @include bp(x-large) {
-    @include gallery(1 of 5 0);
+    @include bp(large) {
+      @include gallery(1 of 4 0);  // 4
+    }
+
   }
+  
 }

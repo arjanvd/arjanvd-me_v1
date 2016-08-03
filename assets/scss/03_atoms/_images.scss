@@ -33,3 +33,10 @@ img {
   vertical-align: middle;
 }
 
+.img {
+  &--portrait, &--landscape {
+    margin-bottom: vr(4);
+  }
+}
+
+// [NOTE] The margins of .img--landscape and .img--portrait are defined in 02_layout/_block.scss

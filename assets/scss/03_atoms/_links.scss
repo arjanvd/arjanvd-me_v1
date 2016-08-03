@@ -29,7 +29,6 @@ a {
   }
   &:hover {
     text-decoration: underline;
-    text-shadow: 0 1px 1px $grey20;
   }
   &:focus {
     padding-top: 2px;
@@ -38,16 +37,74 @@ a {
   &:active {
     opacity: .9;
   }
+  
+  &.link--logo {
+    color: $grey90;
+    &:visited {
+      opacity: 1;
+    }
+    &:hover {
+      color: $black;
+      text-decoration: none;
+    }
+    &:focus {
+      padding-top: 0;
+      opacity: 1;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+  
+  &.link-navigation {
+    display: block;
+    color: $grey60;
+    @include set-type($ms-down1);
+    font-family: $font-sans;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    &:visited {
+    }
+    &:hover {
+      color: $grey80;
+      text-decoration: none;
+    }
+    &:focus {
+    }
+    &:active {
+    }
+  }
+
 }
 
-.body--links a {
-  color: $color-links;
+.ul--index a {
+  color: $black;
 }
-.body--articles a {
+
+.h2--index--articles a,
+.o-content--articles a {
   color: $color-articles;
 }
 
+.h2--index--photos a,
+.o-content--photos a {
+  color: $color-photos;
+}
 
+.h2--index--code a,
+.o-content--code a {
+  color: $color-code;
+}
+
+.h2--index--sport a,
+.o-content--sport a {
+  color: $color-sport;
+}
+
+.h2--index--links a,
+.o-content--links a {
+  color: $color-links;
+}
 
 
 /* @webkit-tap-highlight

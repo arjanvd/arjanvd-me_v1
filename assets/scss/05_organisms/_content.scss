@@ -1,20 +1,25 @@
 /* --------------------------------------------------------
 
-ARTICLE
+CONTENT
 
 ===========================================================
-05_organisms/_article.scss
+05_organisms/_content.scss
 -----------------------------------------------------------
 
-Styles of articles
+Styles of content
 
 -------------------------------------------------------- */
 
-.o-article {  
+.o-content {  
   padding-bottom: vr(8);
   
-  &--list {
-    padding-bottom: 0;
+  &--articles, &--photos, &--code, &--sport, &--links {
+    @extend .o-content;
+  }
+  
+  &--footer {
+    color: $grey80;
+    @include set-type($ms-down1, 3);
   }
 }
 

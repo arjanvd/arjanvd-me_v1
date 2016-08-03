@@ -21,6 +21,11 @@ p {
   &:last-child {
     margin-bottom: 0;
   }
+  
+  &.intro {
+    @include set-type($ms-up1);
+    font-style: italic;
+  }
 }
 
 
@@ -79,3 +84,31 @@ abbr {
     text-transform: uppercase;
   }
 }
+
+.dot {
+  
+  &--home {
+    color: $color-home;
+  }
+  
+  &--articles {
+    color: $color-articles;
+  }
+
+  &--photos {
+    color: $color-photos;
+  }
+
+  &--code {
+    color: $color-code;
+  }
+
+  &--sport {
+    color: $color-sport;
+  }
+  
+  &--links {
+    color: $color-links;
+  }
+}
+

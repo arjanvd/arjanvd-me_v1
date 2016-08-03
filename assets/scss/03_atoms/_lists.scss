@@ -47,6 +47,11 @@ ul {
     margin: 0;
     padding: 0;
   }
+  &.ul--index {
+    list-style: none;
+    padding: 0;
+    margin-bottom: vr(2);
+  }
 }
 
 /* @ ordered lists @ ---------------------------------------------------------
