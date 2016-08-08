@@ -1,0 +1,6 @@
+<article class="l-block--content o-content--photos">
+  <txp:article_image class='img--<txp:custom_field name="image-orientation" />' />
+  <h1 class="h3"><txp:title /></h1>
+  <div class="article-meta--header"><txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december"><txp:posted format="%e %B %Y" lang="nl" /></txp:rah_replace></div>
+  <txp:body />
+</article>

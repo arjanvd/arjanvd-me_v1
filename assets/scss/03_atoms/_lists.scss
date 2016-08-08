@@ -48,9 +48,17 @@ ul {
     padding: 0;
   }
   &.ul--index {
-    list-style: none;
-    padding: 0;
+    @extend ul.ul--reset;
     margin-bottom: vr(2);
+    & li {
+      margin-bottom: vr(1);
+    }
+  }
+  &.ul--web {
+    @extend ul.ul--reset;
+    & li {
+      margin-bottom: vr(1);
+    }
   }
 }
 

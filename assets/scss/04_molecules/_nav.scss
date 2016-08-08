@@ -73,9 +73,11 @@
     &--code {
       &:hover {
         color: $color-code;
+        text-shadow: 0 0 1px $grey20;
       }
       &.active {
         color: $color-code;
+        text-shadow: 0 0 1px $grey20;
         &:before {
           content: '⚒';
           margin-right: vr(2);

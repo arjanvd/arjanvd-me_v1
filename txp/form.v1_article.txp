@@ -1,0 +1,18 @@
+<txp:if_section name="artikelen">
+  <article class="l-block--content o-content--articles">
+<txp:if_section name="code">
+  <article class="l-block--content o-content--code">
+<txp:if_section name="sport">
+  <article class="l-block--content o-content--sport">
+</txp:if_section>
+      <h1 class="h1"><txp:title /></h1>
+      <div class="article-meta--header"><txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december"><txp:posted format="%e %B %Y" lang="nl" /></txp:rah_replace> &mdash; <txp:pat_estimate_time_reading text="" title="geschatte leestijd: " short="1" minute="" second="" plural="" wraptag="" break="" class="" /> min.</div>
+      <txp:body /> 
+    </article>
+    
+    <div class="m-navigation l-block--content">
+      <a href="<txp:link_to_prev>" class="link-navigation navigation__left">< Vorige</a>
+      <a href="<txp:link_to_next>" class="link-navigation navigation__right">Volgende ></a>
+    </div>
+    
+   <txp:output_form form="v1_disqus" />

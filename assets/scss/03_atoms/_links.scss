@@ -81,6 +81,10 @@ a {
   color: $black;
 }
 
+.ul--web a {
+  color: $color-home;
+}
+
 .h2--index--articles a,
 .o-content--articles a {
   color: $color-articles;
@@ -94,6 +98,7 @@ a {
 .h2--index--code a,
 .o-content--code a {
   color: $color-code;
+  text-shadow: 0 0 1px $grey20;
 }
 
 .h2--index--sport a,

@@ -22,11 +22,20 @@ p {
     margin-bottom: 0;
   }
   
-  &.intro {
-    @include set-type($ms-up1);
-    font-style: italic;
+  &.year {
+    @include set-type($ms-up2);
+    color: $grey90;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: vr(4);
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
+  
 }
+
 
 
 /* @ inline elements @ --------------------------------------------------------
@@ -69,19 +78,29 @@ abbr {
 
 .article {
   &-link {
-    font-weight: 900;
+    font-weight: 700;
+    @include set-type($ms-base, 3);
   }
   &-type {
+    font-family: $font-sans;
     font-weight: 900;
+    color: $grey90;
     @include set-type($ms-down2, 3);
     text-transform: uppercase;
     border: 1px solid $grey40;
     padding: 2px;
     vertical-align: middle;
   }
-  &-date {
+  &-meta {
+    font-family: $font-sans;
     @include set-type($ms-down1, 3);
+    color: $grey80;
     text-transform: uppercase;
+    letter-spacing: .15em;
+    &--header {
+      @extend .article-meta;
+      margin-bottom: vr(4);
+    }
   }
 }
 

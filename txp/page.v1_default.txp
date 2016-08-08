@@ -1,0 +1,55 @@
+<txp:output_form form="v1_head" />
+
+<body>
+
+<div class="l-container">
+
+<txp:output_form form="v1_header" />
+
+<txp:if_section name="fotos">
+  <div class="l-wrapper--content--alt">
+<txp:else />
+  <div class="l-wrapper--content">
+</txp:if_section>
+
+<txp:if_section name="artikelen,code,sport">
+  <txp:if_individual_article>
+    <txp:article form="v1_article" />
+  <txp:else />
+    <txp:if_section name="artikelen">
+      <section class="l-block--content o-content--articles">
+    <txp:if_section name="code">
+      <section class="l-block--content o-content--code">
+    <txp:if_section name="sport">
+      <section class="l-block--content o-content--sport">
+    </txp:if_section>
+      <ol class="ol--articles" reversed>
+      <txp:article form="v1_articlelist" />
+      </ol>
+    </section>
+  </txp:if_individual_article>  
+  
+<txp:if_section name="fotos" />
+  <txp:if_individual_article>
+    <txp:article form="v1_photo" />
+  <txp:else />
+    <div class="o-content--photos">
+      <div class="m-gallery">
+        <txp:article form="v1_photolist" limit="20" />
+      </div>
+      <div class="m-navigation l-block--content">
+        <a href="<txp:older>" class="link-navigation navigation__left">< Vorige</a>
+        <a href="<txp:newer>" class="link-navigation navigation__right">Volgende ></a>
+      </div>
+    </div>
+  </txp:if_individual_article>  
+
+<txp:if_section name="links" />
+  hier met txp:linklist
+</txp:if_section>
+
+    </div> <!-- /.l-wrapper--content(--alt) -->
+</div> <!-- /.l-container -->
+  
+</body>
+</html>

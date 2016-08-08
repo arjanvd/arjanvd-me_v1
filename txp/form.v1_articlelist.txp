@@ -1,0 +1,7 @@
+<txp:if_different><p class="year"><txp:posted format="%Y" /></p></txp:if_different>
+<li class="m-article-articles__number">
+  <div class="m-article-articles__item">
+    <h1 class="h4"><txp:permlink><txp:title /></txp:permlink></h1>
+  </div>
+</li>  
+  

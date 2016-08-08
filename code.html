@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+
+<!--#if expr="$HTTP_COOKIE=/fonts\-loaded\=true/" -->
+<html lang="nl" class="fonts-loaded">
+<!--#else -->
+<html lang="nl">
+<!--#endif -->
+
+<head>
+  <title>arjanvd.nl - code</title>
+  <meta charset="utf-8">
+  <meta name="copyright" content="&copy; 2014 Kinderdagverzorging De Kasteeltuin, tenzij anders aangegeven" />
+  <meta name="author" content="Kinderdagopvang en -verzorging De Kasteeltuin" />
+  <meta name="description" content="Kinderdagverzorging De Kasteeltuin is een zelfstandig en duurzaam kinderdagverblijf waar geborgenheid en plezier van kinderen om te spelen en te groeien bovenaan staan." />
+  <meta name="robots" content="index, follow, noodp, noydir">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="assets/js/prism.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" media="screen" href="assets/css/site.css">
+</head>
+
+<body class="body--articles">
+
+<div class="l-container">
+
+  <div class="l-wrapper--header">
+    <header>
+      <div class="m-logo">
+        <h1 class="h1--logo"><a href="" class="link--logo">arjanvd<span class="dot--code">.</span>nl</a></h1>
+      </div>
+      <nav class="m-nav">
+        <input type="checkbox" id="toggle-nav" />
+        <label id="toggle-nav-label" for="toggle-nav"><span>Menu</span>
+          <div class="m-nav__icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </label>
+        <div class="m-nav__list">
+          <ul class="ul--reset">
+            <li><a href="" class="nav-link--articles">Artikelen</a></li>
+            <li><a href="" class="nav-link--photos">Foto's</a></li>
+            <li><a href="" class="nav-link--code active">Code</a></li>
+            <li><a href="" class="nav-link--sport">Sport</a></li>
+            <li><a href="" class="nav-link--links">Links</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="l-wrapper--content">
+    <article class="l-block--content o-content--code">
+      <h1 class="h1">Titel van het g artikel en dan ook nog heel lang</h1>
+      <div class="article-meta--header">4 augustus 2016 &mdash; geschatte leestijd: 4 minuten</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipi*45*sicing elit. Mod *65*i nisi*75* repel*85*lendus veritatis, maiores tenetur ipsa officia, distinctio. <a href="">Praesentium atque</a>, nobis quia aut quidem commodi ratione architecto tempora quaerat, porro voluptas.</p>
+      <pre class="language-scss"><code>@mixin set-type($size, $lines: $base-line-multi) {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: $size; // [1]
+  @if $lines != $base-line-multi { // [2]
+    line-height: ((ceil($size / $base-line-height) * ($base-line-height / $size)) / $base-line-multi) * $lines;
+  }
+  @else { // [3]
+    line-height: ceil($size / $base-line-height) * ($base-line-height / $size);
+  }
+}</code></pre>
+      <p>Vero provident, in nam veniam doloremque veritatis rerum error recusandae beatae, quae rem, possimus. In, officia, sapiente. Facilis dolorem tenetur delectus quidem aliquid rem minima necessitatibus explicabo perspiciatis, enim autem?</p>
+      <p>Maxime reiciendis, blanditiis alias reprehenderit incidunt sunt mollitia voluptatibus quos accusamus enim molestiae repudiandae dolores autem deserunt, ullam iure eaque voluptates quae! Ratione, veritatis culpa ipsum rem voluptates dignissimos, aliquid!</p>
+      <p>Molestiae quia quibusdam obcaecati <code>&lt;p&gt;test&lt;/p&gt;</code> illum sit, consectetur, quos numquam optio corrupti. Hic eius adipisci culpa sit repudiandae nobis, laborum facere. Possimus nisi adipisci iusto consequuntur, mollitia fugiat ea perferendis ullam.</p> 
+      <div class="article-meta">&mdash; <a href="">Reacties</a></div>
+    </article>
+  </div>
+
+</div> <!-- /.l-container -->
+
+<div class="l-container">
+  <div class="l-wrapper--footer o-content--footer">
+    <footer class="l-block--content">
+      <div class="l-block--footer--about">
+        <h1 class="h4">Over mij</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus veritatis adipisci in aperiam, iure repellat sit obcaecati optio. Delectus neque est cumque, esse quos aliquid tempora quae eos unde labore. Repellendus, sapiente, ipsam. Molestiae sed molestias perferendis est incidunt aliquam doloribus quam nam tenetur quas, adipisci impedit, architecto suscipit neque et accusamus cumque, delectus! Est quaerat consequatur temporibus aliquam, recusandae.</p>
+      </div>
+      <div class="l-block--footer--web">
+        <h1 class="h4">Op het web</h1>
+        <ul class="ul--web">
+          <li><a href="http://twitter.com/#!/arjanvd" rel="me">Twitter</a></li>
+          <li><a href="http://www.facebook.com/profile.php?id=100002946988766&amp;sk=wall" rel="me">Facebook</a></li>
+          <li><a href="http://www.linkedin.com/in/arjanvandrielen" rel="me">LinkedIn</a></li>
+          <li><a href="http://instagram.com/arjanvd" rel="me">Instagram</a></li>
+          <li><a href="https://github.com/arjanvd" rel="me">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="l-block--footer--copy">Copyright</div>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>

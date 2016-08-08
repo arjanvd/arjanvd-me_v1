@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!--#if expr="$HTTP_COOKIE=/fonts\-loaded\=true/" -->
+<html lang="nl" class="fonts-loaded">
+<!--#else -->
+<html lang="nl">
+<!--#endif -->
+
+<head>
+  <meta charset="utf-8">
+
+  <txp:if_section name="default">
+      <title><txp:site_name /> &ndash; <txp:site_slogan /></title>
+  <txp:else />
+      <txp:if_category>
+          <title><txp:category1 /> &ndash; <txp:site_name /></title>
+      </txp:if_category>
+      <txp:if_individual_article>
+          <title><txp:title /> &ndash; <txp:site_name /></title>
+      <txp:else />
+          <title><txp:section /> &ndash; <txp:site_name /></title>
+      </txp:if_individual_article>
+  </txp:if_section>	
+
+  <txp:rah_metas author="Arjan van Drielen" copyright="&copy; 2007 - heden Arjan van Drielen, tenzij anders aangegeven" description="Dit is de blog van Arjan. Verhaaltjes - en vooruit, foto's - over alles wat hem bezighoudt, verschijnen hier. Over politiek, sport en andere maatschappelijke bijzaken. En af en toe over dingen die hij zelf doet. Hij is me er eentje." description_from="excerpt,body" />
+
+  <meta name="generator" content="Textpattern CMS">
+  <txp:if_search>
+      <meta name="robots" content="none">
+  <txp:else />
+      <txp:if_category>
+          <meta name="robots" content="noindex, follow, noodp, noydir">
+      <txp:else />
+          <txp:if_author>
+              <meta name="robots" content="noindex, follow, noodp, noydir">
+          <txp:else />
+              <meta name="robots" content="index, follow, noodp, noydir">
+          </txp:if_author>
+      </txp:if_category>
+  </txp:if_search>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- content feeds -->
+  <txp:feed_link flavor="atom" format="link" label="Atom" />
+  <txp:feed_link flavor="rss" format="link" label="RSS" />
+  <txp:rsd />
+
+<!-- specify canonical, more info: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html -->
+  <txp:if_section name="default">
+      <link rel="canonical" href="<txp:site_url />">
+  <txp:else />
+      <txp:if_individual_article>
+          <link rel="canonical" href="<txp:permlink />">
+      <txp:else />
+          <link rel="canonical" href="<txp:section url='1' />">
+      </txp:if_individual_article>
+  </txp:if_section>
+
+<!-- Meta tags for social media, more info: https://css-tricks.com/essential-meta-tags-social-media/ -->
+
+  <txp:if_individual_article>
+    <!--  Essential -->
+    <meta property="og:title" content="<txp:title />">
+    <meta property="og:description" content="<txp:custom_field name="meta-tag-summary" />">
+    <txp:if_article_image>
+      <meta property="og:image" content="<txp:article_image />">
+    <txp:else />
+      <meta property="og:image" content="<txp:article_image />"> <!-- NOG AANPASSEN: STANDAARD IMAGE BEDENKEN
+    </txp:if_article_image>
+    <meta property="og:url" content="<txp:permlink />">
+    <meta name="twitter:card" content="summary_large_image">
+    <!--  Non-Essential, But Recommended -->
+    <meta name="og:site_name" content="<txp:site_name />">
+    <!--<meta name="twitter:image:alt" content="Alt text for image"> -->
+  </txp:if_individual_article>
+
+<!-- css -->
+  <link rel="stylesheet" href="<txp:site_url />assets/css/site.css">
+  <script src="http://use.edgefonts.net/bree-serif:n4;lato:n3,i3,n7,i7;league-gothic:n4;sorts-mill-goudy:n5,i5.js"></script>	
+
+</head>

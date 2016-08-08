@@ -133,7 +133,7 @@ Styles of blocks -- descendants of wrappers only meant for positioning
   &--footer {
   
     &--about {
-      margin-bottom: vr(2);
+      margin-bottom: vr(3);
       
       @include bp(x-small) {
         @include span(7 of 12);
@@ -144,7 +144,7 @@ Styles of blocks -- descendants of wrappers only meant for positioning
       }
     }
     &--web {
-      margin-bottom: vr(2);
+      margin-bottom: vr(3);
       
       @include bp(x-small) {
         @include span(5 of 12 last);
@@ -156,6 +156,7 @@ Styles of blocks -- descendants of wrappers only meant for positioning
     }
     &--copy {
       @include span(12 of 12 last);
+      margin-bottom: vr(2);
     }
   }
   

@@ -98,7 +98,7 @@ Helper variable
 The vertical grid unit, set in rem's like font-size. This is the value that 
 determines the baseline for our vertical rhythm. Line-height, margin, and 
 padding are set to multiples of this value. 
-[Note] Do not touch this variable . Just admire its beauty from a distance.
+[Note] Do not touch this variable. Just admire its beauty from a distance.
 
 ---------------------------------------------------------------------------- */
 
@@ -169,7 +169,7 @@ is where the real magic happens.
   Returns a rem value that is a multiple of $base-vertical-unit. For example: 
   if $base-vertical-unit is 0.75 rem, 3 becomes 2.25 rem. Use this for 
   consistent margins and paddings to maintain vertical rhythm (i.e. 
-  margin-left: vr(3); becomes margin-left: 2.25rem;).
+  margin-bottom: vr(3); becomes margin-bottom: 2.25rem;).
   ---- */
   @if is-int($lines) == false {
     @warn "#{$lines} + #{$not-integer-txt}";

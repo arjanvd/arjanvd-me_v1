@@ -1,0 +1,29 @@
+<div class="l-wrapper--header">
+  <header>
+    <div class="m-logo">
+      <h1 class="h1--logo">
+        <txp:link_to_home class="link--logo">arjanvd<span <txp:if_section name="">class="dot--home"<txp:if_section name="artikelen">class="dot--articles"<txp:if_section name="fotos">class="dot--photos"<txp:if_section name="code">class="dot--code"<txp:if_section name="sport">class="dot--sport"<txp:else />class="dot--links"</txp:if_section>>.</span>nl</txp:link_to_home>
+      </h1>
+    </div>
+    <nav class="m-nav">
+      <input type="checkbox" id="toggle-nav" />
+      <label id="toggle-nav-label" for="toggle-nav"><span>Menu</span>
+        <div class="m-nav__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
+      <div class="m-nav__list">
+        <ul class="ul--reset">
+          <li><a href="<txp:section name="artikelen" url="1" />" class="nav-link--articles <txp:if_section name="artikelen">active</txp:if_section>"><txp:section name="artikelen" title="1" /></a></li>
+          <li><a href="<txp:section name="fotos" url="1" />" class="nav-link--photos <txp:if_section name="fotos">active</txp:if_section>"><txp:section name="fotos" title="1" /></a></li>
+          <li><a href="<txp:section name="code" url="1" />" class="nav-link--code <txp:if_section name="code">active</txp:if_section>"><txp:section name="code" title="1" /></a></li>
+          <li><a href="<txp:section name="sport" url="1" />" class="nav-link--sport <txp:if_section name="sport">active</txp:if_section>"><txp:section name="sport" title="1" /></a></li>
+          <li><a href="<txp:section name="links" url="1" />" class="nav-link--links <txp:if_section name="links">active</txp:if_section>"><txp:section name="links" title="1" /></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</div>

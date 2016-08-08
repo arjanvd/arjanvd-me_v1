@@ -14,10 +14,8 @@
   &-links {
     margin-bottom: vr(4);
     &__header {
-      font-family: $font-sans;
-      color: $grey70;
-      @include set-type($ms-base, 3);
       margin-bottom: vr(1);
+      color: $grey60;
     }
     &__body {
       

@@ -2,6 +2,10 @@
 figure {
   // margin-left and margin-right are defined in 02_layout/_block.scss in .l-block--content figure 
   margin-bottom: vr(4);
+  
+  &.figure--right {
+    width: 50%;
+  }
 }
 
 figcaption {
