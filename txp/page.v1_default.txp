@@ -18,8 +18,10 @@
   <txp:else />
     <txp:if_section name="artikelen">
       <section class="l-block--content o-content--articles">
+    </txp:if_section>
     <txp:if_section name="code">
       <section class="l-block--content o-content--code">
+    </txp:if_section>
     <txp:if_section name="sport">
       <section class="l-block--content o-content--sport">
     </txp:if_section>
@@ -27,9 +29,10 @@
       <txp:article form="v1_articlelist" />
       </ol>
     </section>
-  </txp:if_individual_article>  
+  </txp:if_individual_article> 
+</txp:if_section> 
   
-<txp:if_section name="fotos" />
+<txp:if_section name="fotos">
   <txp:if_individual_article>
     <txp:article form="v1_photo" />
   <txp:else />
@@ -42,10 +45,15 @@
         <a href="<txp:newer>" class="link-navigation navigation__right">Volgende ></a>
       </div>
     </div>
-  </txp:if_individual_article>  
+  </txp:if_individual_article> 
+</txp:if_section> 
 
-<txp:if_section name="links" />
-  hier met txp:linklist
+<txp:if_section name="links">
+  <section class="l-block--content o-content--links">
+    <ul class="ul--reset ul--links">
+      <txp:linklist auto_detect="" form="v1_linkslist" sort="date asc" />
+    </ul>
+  </section>
 </txp:if_section>
 
     </div> <!-- /.l-wrapper--content(--alt) -->

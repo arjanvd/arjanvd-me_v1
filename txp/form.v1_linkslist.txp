@@ -1,0 +1,8 @@
+<li class="m-article-links">
+  <div class="m-article-links__header">
+    <a href="<txp:link_url />" class="article-link"><txp:link_name /></a> &ndash; <span class="article-type"><txp:link_category title="1" /></span> &ndash; <span class="article-meta"><txp:rah_replace from="January,February,March,April,May,June,July,August,September,October,November,December" to="januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december"><txp:link_date format="%e %B %Y" /></txp:rah_replace></span>
+  </div>
+  <div class="m-article-links__body">
+    <p><txp:link_description /></p>
+  </div>
+</li>

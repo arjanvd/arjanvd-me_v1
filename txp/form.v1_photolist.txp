@@ -1,0 +1,3 @@
+<div class="m-gallery__item">
+  <txp:permlink><txp:smd_thumbnail type="square" id='<txp:custom_field name="article_image" />' /></txp:permlink>
+</div>
