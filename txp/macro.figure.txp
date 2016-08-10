@@ -1,0 +1,7 @@
+<figure>
+  <txp:image id="{img_id}" />
+  <figcaption>{txt_caption}</figcaption>
+</figure>
+
+
+<txp:figure id="{img_id}" caption="{txt_caption}" />

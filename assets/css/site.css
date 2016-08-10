@@ -192,16 +192,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.fonts-loaded body {
-  font-family: "Lora", Georgia, "Times New Roman", serif; }
-.fonts-loaded h1, .fonts-loaded .h1,
-.fonts-loaded h2, .fonts-loaded .h2, .fonts-loaded .h2--index--articles, .fonts-loaded .h2--index--photos, .fonts-loaded .h2--index--code, .fonts-loaded .h2--index--sport, .fonts-loaded .h2--index--links,
-.fonts-loaded h3, .fonts-loaded .h3,
-.fonts-loaded h4, .fonts-loaded .h4,
-.fonts-loaded h5, .fonts-loaded .h5,
-.fonts-loaded h6, .fonts-loaded .h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
 .clearfix:after {
   content: "";
   display: table;
@@ -629,20 +619,22 @@ h6, .h6 {
   font-size: 1.7777777777rem;
   line-height: 1.6875000001;
   margin-bottom: 0.375rem; }
-  .h2--art {
-    /* ----
-    [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
-    [2] Line height function: if a line-height is specified in the mixin by 
-        setting the number of lines other than $base-line-multi, line-height is 
-        rounded to a multiple of those lines in rem's (to maintain vertical 
-        rhythm)
-    [3] Line height function: if the line-height is left, line-height is rounded
-        to a multiple of $base-line-height (to maintain vertical rhythm)
-    ---- */
-    font-size: 1.7777777777rem;
-    line-height: 1.6875000001;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem; }
+
+h2 {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1.7777777777rem;
+  line-height: 1.6875000001;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem; }
 
 .h3 {
   /* ----
@@ -657,20 +649,22 @@ h6, .h6 {
   font-size: 1.3333333333rem;
   line-height: 1.125;
   margin-bottom: 0.75rem; }
-  .h3--art {
-    /* ----
-    [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
-    [2] Line height function: if a line-height is specified in the mixin by 
-        setting the number of lines other than $base-line-multi, line-height is 
-        rounded to a multiple of those lines in rem's (to maintain vertical 
-        rhythm)
-    [3] Line height function: if the line-height is left, line-height is rounded
-        to a multiple of $base-line-height (to maintain vertical rhythm)
-    ---- */
-    font-size: 1.3333333333rem;
-    line-height: 1.125;
-    margin-top: 1.5rem;
-    margin-bottom: 0.375rem; }
+
+h3 {
+  /* ----
+  [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
+  [2] Line height function: if a line-height is specified in the mixin by 
+      setting the number of lines other than $base-line-multi, line-height is 
+      rounded to a multiple of those lines in rem's (to maintain vertical 
+      rhythm)
+  [3] Line height function: if the line-height is left, line-height is rounded
+      to a multiple of $base-line-height (to maintain vertical rhythm)
+  ---- */
+  font-size: 1.3333333333rem;
+  line-height: 1.125;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.375rem; }
 
 .h4 {
   /* ----
@@ -1477,6 +1471,64 @@ figcaption {
         margin-right: -100%;
         clear: none; } }
 
+.m-gallery--alt {
+  margin-bottom: 1.5rem; }
+  .m-gallery--alt__item-1 {
+    width: 100%;
+    float: left; }
+    .m-gallery--alt__item-1:nth-child(1n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-2 {
+    width: 50%;
+    float: left; }
+    .m-gallery--alt__item-2:nth-child(2n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-2:nth-child(2n + 2) {
+      margin-left: 50%;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-3 {
+    width: 33.3333333333%;
+    float: left; }
+    .m-gallery--alt__item-3:nth-child(3n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-3:nth-child(3n + 2) {
+      margin-left: 33.3333333333%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-3:nth-child(3n + 3) {
+      margin-left: 66.6666666667%;
+      margin-right: -100%;
+      clear: none; }
+  .m-gallery--alt__item-4 {
+    width: 25%;
+    float: left; }
+    .m-gallery--alt__item-4:nth-child(4n + 1) {
+      margin-left: 0;
+      margin-right: -100%;
+      clear: both;
+      margin-left: 0; }
+    .m-gallery--alt__item-4:nth-child(4n + 2) {
+      margin-left: 25%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-4:nth-child(4n + 3) {
+      margin-left: 50%;
+      margin-right: -100%;
+      clear: none; }
+    .m-gallery--alt__item-4:nth-child(4n + 4) {
+      margin-left: 75%;
+      margin-right: -100%;
+      clear: none; }
+
 .m-article-articles__number {
   /* ----
   [1] Generates font-size in rem, based on the given variable (i.e. $ms-up1)
@@ -1509,6 +1561,38 @@ figcaption {
   .m-article-links__header {
     margin-bottom: 0.375rem;
     color: #888888; }
+
+/**
+
+  @video
+--------------------------------------------------------
+  modules/_video-embeds.scss
+--------------------------------------------------------
+
+  Video Embeds
+
+-----------------------------------------------------  */
+.embed-container, .embed-container--strava {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16/9 ratio */
+  height: 0;
+  margin-bottom: 1.5rem;
+  overflow: hidden; }
+  .embed-container iframe, .embed-container--strava iframe, .embed-container object, .embed-container--strava object, .embed-container embed, .embed-container--strava embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .embed-container--strava {
+    padding-bottom: 68.644068%; }
+    .embed-container--strava iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
 
 .m-navigation {
   display: flex;

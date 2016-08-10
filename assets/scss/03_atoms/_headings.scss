@@ -62,24 +62,27 @@ h6, .h6 {
       @extend .h2;
     }
   }
+}
   
-  &--art {
+  h2 {
     @include set-type($ms-up2);
+    font-weight: 700;
     margin-top: vr(4);
     margin-bottom: vr(2);
   }
-}
+
 
 .h3 {
   @include set-type($ms-up1);
   margin-bottom: vr(2);
-  
-  &--art {
+}
+  h3 {
     @include set-type($ms-up1);
+    font-weight: 700;
     margin-top: vr(4);
     margin-bottom: vr(1);
   }
-}
+
 
 .h4 {
   @include set-type($ms-base);

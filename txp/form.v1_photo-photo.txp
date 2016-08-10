@@ -1,0 +1,11 @@
+<txp:variable name="img-height" value='<txp:images><txp:image_info type="h" /></txp:images>' />
+<txp:variable name="img-width" value='<txp:images><txp:image_info type="w" /></txp:images>' />
+<txp:images>
+  <img src="<txp:image_url />"
+    <txp:smd_if field="txpvar:img-height" operator="gt" value="txpvar:img-width">
+     class="img--portrait"
+    <txp:else />
+     class="img--landscape"
+    </txp:smd_if>
+  />
+</txp:images>

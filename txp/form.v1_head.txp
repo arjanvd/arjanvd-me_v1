@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-
-<!--#if expr="$HTTP_COOKIE=/fonts\-loaded\=true/" -->
-<html lang="nl" class="fonts-loaded">
-<!--#else -->
-<html lang="nl">
-<!--#endif -->
-
 <head>
   <meta charset="utf-8">
 
@@ -63,11 +56,7 @@
     <!--  Essential -->
     <meta property="og:title" content="<txp:title />">
     <meta property="og:description" content="<txp:custom_field name="meta-tag-summary" />">
-    <txp:if_article_image>
-      <meta property="og:image" content="<txp:article_image />">
-    <txp:else />
-      <meta property="og:image" content="<txp:article_image />"> <!-- NOG AANPASSEN: STANDAARD IMAGE BEDENKEN
-    </txp:if_article_image>
+    <meta property="og:image" content="<txp:if_article_image><txp:article_image /><txp:else /></txp:if_article_image>">
     <meta property="og:url" content="<txp:permlink />">
     <meta name="twitter:card" content="summary_large_image">
     <!--  Non-Essential, But Recommended -->
@@ -76,7 +65,8 @@
   </txp:if_individual_article>
 
 <!-- css -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="<txp:site_url />assets/css/site.css">
-  <script src="http://use.edgefonts.net/bree-serif:n4;lato:n3,i3,n7,i7;league-gothic:n4;sorts-mill-goudy:n5,i5.js"></script>	
+  </script>	
 
 </head>
