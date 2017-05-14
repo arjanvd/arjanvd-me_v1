@@ -1,0 +1,62 @@
+<txp:output_form form="v1_head" />
+
+<body>
+
+<div class="l-container">
+
+<txp:output_form form="v1_header" />
+
+<div class="l-wrapper--content">
+    <div class="l-block--content">
+      <div class="l-block--index__item">
+        <h1 class="h2--index--articles"><a href="<txp:section name="artikelen" url="1" />">Artikelen</a></h1>
+        <txp:article_custom section="artikelen" limit="5" wraptag="ul" wrapclass="ul--index" break="li">
+          <txp:permlink><txp:title /></txp:permlink>
+        </txp:article_custom>
+        <a href="<txp:section name="artikelen" url="1" />" class="link-navigation">Ga naar alle artikelen &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="l-wrapper--content--alt">
+    <h1 class="l-block--content h2--index--photos"><a href="<txp:section name="fotos" url="1" />">Foto's</a></h1>
+    <div class="l-block--index__item">
+      <div class="m-gallery--index clearfix">
+        <txp:article_custom section="fotos" limit="8" form="v1_photolist" />
+      </div>
+      <a href="<txp:section name="fotos" url="1" />" class="link-navigation l-block--content">Ga naar alle foto's &raquo;</a>
+    </div>
+  </div>
+  <div class="l-wrapper--content--alt">
+    <div class="l-block--content">
+      <div class="l-block--index__item">
+        <h1 class="h2--index--code"><a href="<txp:section name="code" url="1" />">Code</a></h1>
+        <txp:article_custom section="code" limit="5" wraptag="ul" wrapclass="ul--index" break="li">
+          <txp:permlink><txp:title /></txp:permlink>
+        </txp:article_custom>
+        <a href="<txp:section name="code" url="1" />" class="link-navigation">Ga naar alle artikelen &raquo;</a>
+      </div>
+      <div class="l-block--index__item">
+        <h1 class="h2--index--sport"><a href="<txp:section name="sport" url="1" />">Sport</a></h1>
+        <txp:article_custom section="sport" limit="5" wraptag="ul" wrapclass="ul--index" break="li">
+          <txp:permlink><txp:title /></txp:permlink>
+        </txp:article_custom>
+        <a href="<txp:section name="sport" url="1" />" class="link-navigation">Ga naar alle artikelen &raquo;</a>
+      </div>
+      <div class="l-block--index__item">
+        <h1 class="h2--index--links"><a href="<txp:section name="links" url="1" />">Links</a></h1>
+        <ul class="ul--index">
+          <txp:linklist auto_detect="" sort="date asc" limit="5">
+            <li><txp:link /></li>
+          </txp:linklist>
+        </ul>
+        <a href="<txp:section name="links" url="1" />" class="link-navigation">Ga naar alle links &raquo;</a>
+      </div>
+    </div>
+  
+  </div> <!-- /.l-wrapper--content(--alt) -->
+</div> <!-- /.l-container -->
+
+<txp:output_form form="v1_footer" />
+
+</body>
+</html>

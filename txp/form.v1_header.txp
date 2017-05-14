@@ -2,7 +2,7 @@
   <header>
     <div class="m-logo">
       <h1 class="h1--logo">
-        <txp:link_to_home class="link--logo">arjanvd<span <txp:if_section name="">class="dot--home"<txp:if_section name="artikelen">class="dot--articles"<txp:if_section name="fotos">class="dot--photos"<txp:if_section name="code">class="dot--code"<txp:if_section name="sport">class="dot--sport"<txp:else />class="dot--links"</txp:if_section>>.</span>nl</txp:link_to_home>
+        <txp:link_to_home class="link--logo">arjanvd<span <txp:if_section name="">class="dot--home"</txp:if_section><txp:if_section name="artikelen">class="dot--articles"</txp:if_section><txp:if_section name="fotos">class="dot--photos"</txp:if_section><txp:if_section name="code">class="dot--code"</txp:if_section><txp:if_section name="sport">class="dot--sport"</txp:if_section><txp:if_Section name="links">class="dot--links"</txp:if_section>>.</span>nl</txp:link_to_home>
       </h1>
     </div>
     <nav class="m-nav">

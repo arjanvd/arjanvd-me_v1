@@ -1,0 +1,25 @@
+<div class="l-container">
+  <div class="l-wrapper--footer o-content--footer">
+    <footer class="l-block--content">
+      <div class="l-block--footer--about">
+        <h1 class="h4">Over mij</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus veritatis adipisci in aperiam, iure repellat sit obcaecati optio. Delectus neque est cumque, esse quos aliquid tempora quae eos unde labore. Repellendus, sapiente, ipsam. Molestiae sed molestias perferendis est incidunt aliquam doloribus quam nam tenetur quas, adipisci impedit, architecto suscipit neque et accusamus cumque, delectus! Est quaerat consequatur temporibus aliquam, recusandae.</p>
+      </div>
+      <div class="l-block--footer--web">
+        <h1 class="h4">Op het web</h1>
+        <ul class="ul--web">
+          <li><a href="http://twitter.com/#!/arjanvd" rel="me">Twitter</a></li>
+          <li><a href="http://www.facebook.com/profile.php?id=100002946988766&amp;sk=wall" rel="me">Facebook</a></li>
+          <li><a href="http://www.linkedin.com/in/arjanvandrielen" rel="me">LinkedIn</a></li>
+          <li><a href="http://instagram.com/arjanvd" rel="me">Instagram</a></li>
+          <li><a href="https://github.com/arjanvd" rel="me">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="l-block--footer--copy">&copy; 2016 - heden. Alle rechten voorbehouden, tenzij anders aangegeven.</div>
+    </footer>
+  </div>
+</div>
+
+<txp:if_section name="code">
+  <script src="assets/js/prism.js"></script>
+</txp:if_section>

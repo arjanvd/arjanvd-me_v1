@@ -55,25 +55,6 @@ a {
       opacity: 1;
     }
   }
-  
-  &.link-navigation {
-    display: block;
-    color: $grey60;
-    @include set-type($ms-down1);
-    font-family: $font-sans;
-    text-transform: uppercase;
-    letter-spacing: .25em;
-    &:visited {
-    }
-    &:hover {
-      color: $grey80;
-      text-decoration: none;
-    }
-    &:focus {
-    }
-    &:active {
-    }
-  }
 
 }
 
@@ -83,6 +64,19 @@ a {
 
 .ul--web a {
   color: $color-home;
+}
+
+.link-navigation a, .link-more {
+  display: block;
+  color: $grey60;
+  @include set-type($ms-down1);
+  font-family: $font-sans;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  &:hover {
+    color: $grey80;
+    text-decoration: none;
+  }
 }
 
 .h2--index--articles a,

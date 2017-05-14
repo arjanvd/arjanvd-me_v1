@@ -2,7 +2,7 @@
 <txp:variable name="img-width" value='<txp:images><txp:image_info type="w" /></txp:images>' />
 <txp:images>
   <img src="<txp:image_url />"
-    <txp:smd_if field="txpvar:img-height" operator="gt" value="txpvar:img-width">
+    <txp:smd_if field="txpvar:img-height" value="txpvar:img-width" operator="gt">
      class="img--portrait"
     <txp:else />
      class="img--landscape"

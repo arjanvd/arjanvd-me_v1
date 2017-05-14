@@ -1,0 +1,9 @@
+<div class="m-navigation l-block--content">
+  <txp:if_individual_article>
+    <div class="link-navigation navigation__left"><txp:link_to_prev>&lt; Vorige</txp:link_to_prev></div>
+    <div class="link-navigation navigation__right"><txp:link_to_next>Volgende &gt;</txp:link_to_next></div>
+  <txp:else />
+    <div class="link-navigation navigation__left"><txp:older>&lt; Vorige</txp:older></div>
+    <div class="link-navigation navigation__right"><txp:newer>Volgende &gt;</txp:newer></div>  
+  </txp:if_individual_article>
+</div>
